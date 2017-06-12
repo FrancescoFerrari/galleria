@@ -33,7 +33,7 @@ public class AutoreController {
 	
 	
 	@GetMapping("/autore")
-	    public String showForm(Autore artista) {
+	    public String showForm(Autore autore) {
 	        return "formAutore";
 	    }
 	 

@@ -48,7 +48,6 @@ public class Autore {
 		this.nome = nome;
 		this.cognome = cognome;
 		this.annoNascita = annoNascita;
-		this.annoMorte= annoMorte;
 		this.opereAutore = new LinkedList<>();
 	}
 

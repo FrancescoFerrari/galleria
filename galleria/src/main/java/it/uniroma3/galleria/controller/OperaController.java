@@ -41,8 +41,8 @@ public class OperaController  {
 	}
 
 	@GetMapping("/operaList")
-     public String ListaOpere(List<Opera> opere){
+	public String ListaOpere(List<Opera> opere){
 		return"listaOpere";
-}
+	}
 }
 
