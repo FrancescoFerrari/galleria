@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nuovo Artista</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+    <body>
+        <form action="#" th:action="@{/autore}" th:object="${autore}" method="post">
+            <div>
+                <div>
+                    <span th:text="#{label.nome}">Nome: </span>
+                    <span><input type="text" th:field="*{nome}" /></span>
+                    <span th:if="${#fields.hasErrors('nome')}" th:text="#{label.mandatory}">Error</span>
+                </div>
+                <div>
+                    <span th:text="#{label.cognome}">Cognome: </span>
+                    <span><input type="text" th:field="*{cognome}" /></span>
+                    <span th:if="${#fields.hasErrors('cognome')}" th:text="#{label.mandatory}">Error</span>
+                </div>
+                <div>
+                    <span th:text="#{label.annoNascita}">AnnoNascita: </span>
+                    <span><input type="text" th:field="*{annoNascita}" /></span>
+                    <span th:if="${#fields.hasErrors('annoNascita')}" th:text="#{label.date}">Error</span>
+                </div>
+                <div>
+                    <span th:text="#{label.annoMorte}">AnnoMorte: </span>
+                    <span><input type="text" th:field="*{annoMorte}" /></span>
+                    <span th:if="${#fields.hasErrors('annoMorte')}" th:text="#{label.date}">Error</span>
+                </div>
+                <div>
+                    <span><button type="submit">Invia</button></span>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

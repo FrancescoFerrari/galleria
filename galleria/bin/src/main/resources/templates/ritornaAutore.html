@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div>
+    	<p th:text="'Nome: ' + ${autore.nome}" />
+    </div>
+	<div>
+    	<p th:text="'Cognome ' + ${autore.cognome}" />
+    </div>
+	<div>
+    	<p th:text="'Anno di nascita: ' + ${autore.annoNascita}" />	
+    </div>
+    <div>
+    	<p th:if="${autore.annoMorte}" th:text="#{label.annoMorte} +' '+ ${autore.annoMorte}"></p>
+    </div>
+</body>
+</html>
