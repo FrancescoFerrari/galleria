@@ -33,18 +33,36 @@ public class Opera {
     
     @ManyToOne
     private Autore autore;
+    
+    @ManyToOne
+    private Stanza stanza;
 
     protected Opera() {}
 	
-	public Opera(String nome, String descrizione,String tecnica, Integer anno, Autore autore) {
+	public Opera(String nome, String descrizione,String tecnica, Integer anno, Autore autore, Stanza stanza) {
 		this.nome = nome;
 		this.tecnica=tecnica;
 		this.descrizione = descrizione;
 		this.anno = anno;
 		this.autore =autore;
+		this.stanza=stanza;
 	}
 	
 	
+
+	/**
+	 * @return the stanza
+	 */
+	public Stanza getStanza() {
+		return stanza;
+	}
+
+	/**
+	 * @param stanza the stanza to set
+	 */
+	public void setStanza(Stanza stanza) {
+		this.stanza = stanza;
+	}
 
 	/**
 	 * @return the tecnica
