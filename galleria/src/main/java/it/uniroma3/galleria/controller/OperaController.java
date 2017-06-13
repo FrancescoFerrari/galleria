@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import it.uniroma3.galleria.model.Autore;
 import it.uniroma3.galleria.model.Opera;
+import it.uniroma3.galleria.model.Stanza;
 import it.uniroma3.galleria.service.AutoreService;
 import it.uniroma3.galleria.service.OperaService;
+import it.uniroma3.galleria.service.StanzaService;
 
 @Controller
 public class OperaController  {
@@ -24,15 +26,21 @@ public class OperaController  {
 	private AutoreService autoreService;
 	@Autowired
 	private OperaService operaService; 
+	@Autowired
+	private StanzaService stanzaService; 
 
 	@GetMapping("/opera")
-	public String showForm(Opera opera) {
+	public String showForm(Model model, Opera opera) {
+		List<Stanza> stanze = (List<Stanza>) stanzaService.findAll();
+		model.addAttribute("stanze", stanze);
 		return "formOpera";
 	}
 
 	@PostMapping("/opera")
+	
 	public String checkOperaInfo(@Valid @ModelAttribute Opera opera, 
 			BindingResult bindingResult, Model model , @RequestParam("nomeAutore") String nomeAutore) {
+	
 		if (bindingResult.hasErrors() || autoreService.findbyName(nomeAutore.toUpperCase())==null ) {
 			return "formOpera";
 		}
@@ -41,6 +49,7 @@ public class OperaController  {
 			opera.setAutore(autore);
 			autore.getOpereAutore().add(opera);
 			model.addAttribute(opera);
+			opera.getStanza().getOpere().add(opera);
 			operaService.add(opera); 
 		}
 		return "ritornaOpera";

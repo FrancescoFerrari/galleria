@@ -36,19 +36,36 @@ public class Opera {
     
     @ManyToOne
     private Stanza stanza;
+    
+    @NotNull
+    private String urlImmagine;
+    
 
-    protected Opera() {}
+    /**
+	 * @return the urlImmagine
+	 */
+	public String getUrlImmagine() {
+		return urlImmagine;
+	}
+
+	/**
+	 * @param urlImmagine the urlImmagine to set
+	 */
+	public void setUrlImmagine(String urlImmagine) {
+		this.urlImmagine = urlImmagine;
+	}
+
+	protected Opera() {}
 	
-	public Opera(String nome, String descrizione,String tecnica, Integer anno, Autore autore, Stanza stanza) {
+	public Opera(String nome, String descrizione,String tecnica, Integer anno, Autore autore, Stanza stanza, String urlImmagine) {
 		this.nome = nome;
 		this.tecnica=tecnica;
 		this.descrizione = descrizione;
 		this.anno = anno;
 		this.autore =autore;
 		this.stanza=stanza;
-	}
-	
-	
+		this.urlImmagine=urlImmagine;
+	}	
 
 	/**
 	 * @return the stanza
