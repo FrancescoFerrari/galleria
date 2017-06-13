@@ -59,5 +59,12 @@ public class OperaController  {
 	public String ListaOpere(List<Opera> opere){
 		return"listaOpere";
 	}
+	
+	@GetMapping("/mostraOpera")
+	public String showOpera(Model model ,@RequestParam("id") Long id ){
+		Opera opera = operaService.findbyId(id);
+		model.addAttribute("opera", opera);
+		return "ritornaOpera";
+	}
 }
 
