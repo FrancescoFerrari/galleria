@@ -33,11 +33,11 @@ public class OperaController  {
 	@PostMapping("/opera")
 	public String checkOperaInfo(@Valid @ModelAttribute Opera opera, 
 			BindingResult bindingResult, Model model , @RequestParam("nomeAutore") String nomeAutore) {
-		if (bindingResult.hasErrors() || autoreService.findbyName(nomeAutore)==null ) {
+		if (bindingResult.hasErrors() || autoreService.findbyName(nomeAutore.toUpperCase())==null ) {
 			return "formOpera";
 		}
 		else {
-			Autore autore = autoreService.findbyName(nomeAutore);
+			Autore autore = autoreService.findbyName(nomeAutore.toUpperCase());
 			opera.setAutore(autore);
 			autore.getOpereAutore().add(opera);
 			model.addAttribute(opera);
