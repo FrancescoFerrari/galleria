@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Opere in stanza</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>listaOpere</title>
 </head>
 <body>
-
+<h1>Opere Nella Stanza </h1>
+<table>
+	<th:foreach th:each="opera: ${opere}">
+      <tr>
+      <td>
+      <a th:text="${opera.nome}" th:href="@{/mostraOpera?(id=${opera.id})}"></a>
+      </td> 
+         
+      </tr>
+   </th:foreach>
+</table>
+	
 </body>
 </html>
