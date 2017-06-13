@@ -8,6 +8,6 @@ import org.springframework.data.repository.CrudRepository;
 import it.uniroma3.galleria.model.Autore;
 
 public interface AutoreRepository extends CrudRepository<Autore,Long>{
-	List<Autore> findByNome(String nome);
+	Autore findByNome(String nome);
 	List<Autore> findByAnnoNascita(Date annoNascita);
 }

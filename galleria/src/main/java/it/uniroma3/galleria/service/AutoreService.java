@@ -24,4 +24,8 @@ public class AutoreService {
 		public Autore findbyId(Long id) {
 			return this.autoreRepository.findOne(id);
 		}
+		
+		public Autore findbyName(String nome){
+			return  this.autoreRepository.findByNome(nome);
+		}
 }

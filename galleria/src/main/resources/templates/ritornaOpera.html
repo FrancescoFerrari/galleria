@@ -2,17 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 	<div>
-    	<p th:text="'Nome: ' + ${opera.nome}" />
-    </div>
+		<p th:text="'Nome: ' + ${opera.nome}" />
+	</div>
 	<div>
-    	<p th:text="'Descrizione: ' + ${opera.descrizione}" />
-    </div>
-    <div>
-    	<p th:text="'Tecnica: ' + ${opera.tecnica}" />
-    </div>
+		<p th:text="'Descrizione: ' + ${opera.descrizione}" />
+	</div>
 	<div>
-    	<p th:text="'Anno: ' + ${opera.anno}" />	
-    </div>
+		<p th:text="'Tecnica: ' + ${opera.tecnica}" />
+	</div>
+	<div>
+		<p th:text="'Anno: ' + ${opera.anno}" />
+	</div>
+	<div>
+		<p th:text="'Nome autore: ' + ${opera.autore.nome}" />
+	</div>
 
 </body>
 </html>

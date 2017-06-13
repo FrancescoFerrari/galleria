@@ -11,13 +11,17 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import it.uniroma3.galleria.model.Autore;
 import it.uniroma3.galleria.model.Opera;
+import it.uniroma3.galleria.service.AutoreService;
 import it.uniroma3.galleria.service.OperaService;
 
 @Controller
 public class OperaController  {
-
+	@Autowired
+	private AutoreService autoreService;
 	@Autowired
 	private OperaService operaService; 
 
@@ -28,12 +32,14 @@ public class OperaController  {
 
 	@PostMapping("/opera")
 	public String checkOperaInfo(@Valid @ModelAttribute Opera opera, 
-			BindingResult bindingResult, Model model) {
-
-		if (bindingResult.hasErrors()) {
+			BindingResult bindingResult, Model model , @RequestParam("nomeAutore") String nomeAutore) {
+		if (bindingResult.hasErrors() || autoreService.findbyName(nomeAutore)==null ) {
 			return "formOpera";
 		}
 		else {
+			Autore autore = autoreService.findbyName(nomeAutore);
+			opera.setAutore(autore);
+			autore.getOpereAutore().add(opera);
 			model.addAttribute(opera);
 			operaService.add(opera); 
 		}

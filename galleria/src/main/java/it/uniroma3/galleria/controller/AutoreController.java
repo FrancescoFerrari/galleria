@@ -43,6 +43,7 @@ public class AutoreController {
 	            return "formAutore";
 	        }
 	        else {
+	        	autore.setNome(autore.getNome().toUpperCase());
 	        	model.addAttribute(autore);
 	            autoreService.add(autore); 
 	        }
