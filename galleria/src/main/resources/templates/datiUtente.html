@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>>Benvenuto</title>
+<link href="../static/css/login.css" th:href="@{/css/login.css}"
+	rel="stylesheet" media="screen" />
+	<link href="../static/vendor/font-awesome/css/font-awesome.min.css" th:href="@{/vendor/font-awesome/css/font-awesome.min.css}"
+	rel="stylesheet" media="screen" />
+</head>
+<body>
+	<div class="main">
+		<div class="container">
+			<div class="middle">
+				Benvenuto <span th:text="${user.username}" ></span>, questi sono i tuoi dati:
+
+			</div><!-- end middle -->
+		</div><!-- end container -->
+	</div><!-- end main -->
+</body>
+</html>
