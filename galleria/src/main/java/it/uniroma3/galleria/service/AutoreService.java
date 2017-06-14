@@ -25,7 +25,7 @@ public class AutoreService {
 			return this.autoreRepository.findOne(id);
 		}
 		
-		public Autore findbyName(String nome){
-			return  this.autoreRepository.findByNome(nome);
+		public Autore findbyName(String nomeAutore){
+			return  this.autoreRepository.findByNomeAutore(nomeAutore);
 		}
 }

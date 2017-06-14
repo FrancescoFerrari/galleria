@@ -24,11 +24,12 @@ public class Autore {
 
     @NotNull
     @Size(min=1)
-    private String nome;
+    private String nomeAutore;
 
+ 
     @NotNull
     @Size(min=1)
-    private String cognome;
+    private String nazionalita;
 
     @NotNull
     @Temporal(TemporalType.DATE)
@@ -42,13 +43,24 @@ public class Autore {
     @OneToMany(mappedBy="autore")
     private List<Opera> opereAutore;
 
+	
+
     protected Autore() {}
 	
-	public Autore(String nome, String cognome, Date annoNascita, Date annoMorte) {
-		this.nome = nome;
-		this.cognome = cognome;
+	public Autore(String nome, String nazionalita, Date annoNascita, Date annoMorte) {
+		this.nomeAutore = nome;
+		this.nazionalita = nazionalita;
 		this.annoNascita = annoNascita;
 		this.opereAutore = new LinkedList<>();
+	}
+
+	
+	public String getNazionalita() {
+		return nazionalita;
+	}
+
+	public void setNazionalita(String nazionalita) {
+		this.nazionalita = nazionalita;
 	}
 
 	public List<Opera> getOpereAutore() {
@@ -59,20 +71,12 @@ public class Autore {
 		this.opereAutore = opereAutore;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getNomeAutore() {
+		return nomeAutore;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getCognome() {
-		return cognome;
-	}
-
-	public void setCognome(String cognome) {
-		this.cognome = cognome;
+	public void setNomeAutore(String nome) {
+		this.nomeAutore = nome;
 	}
 
 	public Date getAnnoNascita() {
@@ -93,7 +97,7 @@ public class Autore {
 
 	@Override
 	public String toString() {
-		return "Artista [id=" + id + ", nome=" + nome + ", cognome=" + cognome + ", annoNascita=" + annoNascita
+		return "Artista [id=" + id + ", nome=" + nomeAutore + ", nazionalita=" + nazionalita + ", annoNascita=" + annoNascita
 				+ ", annoMorte=" + annoMorte + "]";
 	}
 	

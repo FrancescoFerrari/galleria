@@ -38,6 +38,12 @@ public class Opera {
     private Stanza stanza;
     
     @NotNull
+    private double lunghezza;
+    
+    @NotNull
+    private double larghezza;
+    
+    @NotNull
     private String urlImmagine;
     
 
@@ -57,7 +63,7 @@ public class Opera {
 
 	protected Opera() {}
 	
-	public Opera(String nome, String descrizione,String tecnica, Integer anno, Autore autore, Stanza stanza, String urlImmagine) {
+	public Opera(String nome, String descrizione,String tecnica, Integer anno, Autore autore, Stanza stanza, String urlImmagine,double lunghezza,double larghezza) {
 		this.nome = nome;
 		this.tecnica=tecnica;
 		this.descrizione = descrizione;
@@ -65,6 +71,8 @@ public class Opera {
 		this.autore =autore;
 		this.stanza=stanza;
 		this.urlImmagine=urlImmagine;
+		this.lunghezza=lunghezza;
+		this.larghezza=larghezza;
 	}	
 
 	/**
@@ -139,6 +147,22 @@ public class Opera {
 
 	public void setAnno(Integer anno) {
 		this.anno = anno;
+	}
+	
+	public double getLunghezza() {
+		return lunghezza;
+	}
+
+	public void setLunghezza(double lunghezza) {
+		this.lunghezza = lunghezza;
+	}
+
+	public double getLarghezza() {
+		return larghezza;
+	}
+
+	public void setLarghezza(double larghezza) {
+		this.larghezza = larghezza;
 	}
 
 	@Override
