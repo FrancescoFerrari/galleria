@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import it.uniroma3.galleria.comparator.ComparatorePerAnno;
 import it.uniroma3.galleria.model.Opera;
 import it.uniroma3.galleria.model.Stanza;
 import it.uniroma3.galleria.service.StanzaService;
@@ -58,13 +59,14 @@ public class StanzaController {
 		return "opereInStanza";
 	}
 	
-	@GetMapping("/visualizzaAnno")
+	@GetMapping("/visualizzaPerAnno")
 	public String showPerAnno(@RequestParam("id")long id, Model model){
 		Stanza stanza = stanzaService.findbyId(id);
 		List<Opera> opere= stanza.getOpere();
 		model.addAttribute("opere", opere);
 		model.addAttribute("stanza", stanza);
-		
+		ComparatorePerAnno comparatore = new ComparatorePerAnno();
+		Collections.sort(opere,comparatore);
 		return "opereInStanza";
 	}
 	
