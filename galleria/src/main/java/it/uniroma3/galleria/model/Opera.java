@@ -175,7 +175,7 @@ public class Opera implements Comparable<Opera> {
 
 	@Override
 	public int compareTo(Opera that) {
-		return this.nome.compareTo(that.nome);
+		return this.nome.toUpperCase().compareTo(that.nome.toUpperCase());
 	}
 
 

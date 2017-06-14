@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import it.uniroma3.galleria.model.User;
-import it.uniroma3.galleria.repository.OperaRepository;
 import it.uniroma3.galleria.repository.UserRepository;
 
 @Service
