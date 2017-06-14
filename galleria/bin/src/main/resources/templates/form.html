@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New Customer</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+    <body>
+        <form action="#" th:action="@{/opera}" th:object="${opera}" method="post">
+            <div>
+                <div>
+                    <span th:text="#{label.nome}">Nome: </span>
+                    <span><input type="text" th:field="*{nome}" /></span>
+                    <span th:if="${#fields.hasErrors('nome')}" th:text="#{label.mandatory}">Error</span>
+                </div>
+                <div>
+                    <span th:text="#{label.descrizione}">Descrizione: </span>
+                    <span><input type="text" th:field="*{descrizione}" /></span>
+                    <span th:if="${#fields.hasErrors('descrizione')}" th:text="#{label.mandatory}">Error</span>
+                </div>
+                <div>
+                    <span th:text="#{label.anno}">Anno: </span>
+                    <span><input type="text" th:field="*{anno}" /></span>
+                    <span th:if="${#fields.hasErrors('anno')}" th:text="#{label.number}">Error</span>
+                </div>
+                <div>
+                    <span><p><button type="submit">Invia</button></p></span>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

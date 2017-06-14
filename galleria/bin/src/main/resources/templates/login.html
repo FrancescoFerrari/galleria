@@ -1,27 +1,44 @@
-<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
-  <head>
-    <title>Login</title>
-  </head>
-  <body>
-    <div>
-        <form name="f" th:action="@{/login}" method="post">               
-            <fieldset>
-                <legend>Please Login</legend>
-                <div th:if="${param.error}" class="alert alert-error">    
-                    Invalid username and password.
-                </div>
-                <div th:if="${param.logout}" class="alert alert-success"> 
-                    You have been logged out.
-                </div>
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username"/>        
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password"/>    
-                <div class="form-actions">
-                    <button type="submit" class="btn">Log in</button>
-                </div>
-            </fieldset>
-        </form>
-    </div>
-  </body>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>>Login</title>
+<!-- <link href="../static/css/login.css" th:href="@{/css/login.css}"
+	rel="stylesheet" media="screen" />-->
+</head>
+<body>
+	<div class="main">
+		<div class="container">
+			<div class="middle">
+				<div id="login">
+					<form th:action="@{/login}" method="post">
+						<p>
+							<span class="fa fa-user"></span><input type="text"
+								name="username" placeholder="username"></input>
+						</p>
+						<p>
+							<span class="fa fa-lock"></span><input type="password"
+								name="password" placeholder="password"></input>
+						</p>
+						<span style="width: 50%; text-align: left; float: left;"><input
+							type="submit" value="Accedi"></input></span>
+					</form>
+					<form action="/">
+						<span style="width: 50%; text-align: right;"><input
+							type="submit" value="Home"></input></span>
+					</form>
+					<div th:if="${param.error}">
+						<h1 style="color: red">Username o Password errati</h1>
+					</div>
+				</div>
+				<!--  end login -->
+				<div class="logo">Galleria</div>
+			</div>
+			<!-- end middle -->
+		</div>
+		<!-- end container -->
+	</div>
+	<!-- end main -->
+</body>
 </html>

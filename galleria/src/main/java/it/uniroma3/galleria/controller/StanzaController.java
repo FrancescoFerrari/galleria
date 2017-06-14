@@ -1,5 +1,6 @@
 package it.uniroma3.galleria.controller;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -52,6 +53,26 @@ public class StanzaController {
 	public String showStanza(@RequestParam("id")long id, Model model){
 		Stanza stanza = stanzaService.findbyId(id);
 		List<Opera> opere= stanza.getOpere();
+		model.addAttribute("opere", opere);
+		model.addAttribute("stanza", stanza);
+		return "opereInStanza";
+	}
+	
+	@GetMapping("/visualizzaAnno")
+	public String showPerAnno(@RequestParam("id")long id, Model model){
+		Stanza stanza = stanzaService.findbyId(id);
+		List<Opera> opere= stanza.getOpere();
+		model.addAttribute("opere", opere);
+		model.addAttribute("stanza", stanza);
+		
+		return "opereInStanza";
+	}
+	
+	@GetMapping("/visualizzaPerTitolo")
+	public String showPerTitolo(@RequestParam("id")long id, Model model){
+		Stanza stanza = stanzaService.findbyId(id);
+		List<Opera> opere=stanza.getOpere();
+		Collections.sort(opere);
 		model.addAttribute("opere", opere);
 		model.addAttribute("stanza", stanza);
 		return "opereInStanza";

@@ -18,6 +18,16 @@
                     <span><input type="text" th:field="*{nome}" /></span>
                     <span th:if="${#fields.hasErrors('nome')}" th:text="#{label.mandatory}">Error</span>
                 </div>
+                 <div>
+                    <span th:text="#{label.lunghezza}">Lunghezza quadro: </span>
+                    <span><input type="text" th:field="*{lunghezza}" /></span>
+                    <span th:if="${#fields.hasErrors('lunghezza')}" th:text="#{label.number}">Error</span>
+                </div>
+                 <div>
+                    <span th:text="#{label.larghezza}">Larghezza quadro: </span>
+                    <span><input type="text" th:field="*{larghezza}" /></span>
+                    <span th:if="${#fields.hasErrors('larghezza')}" th:text="#{label.number}">Error</span>
+                </div>
                 <div>
                     <span th:text="#{label.urlImmagine}">Immagine Url: </span>
                     <span><input type="text" th:field="*{urlImmagine}" /></span>

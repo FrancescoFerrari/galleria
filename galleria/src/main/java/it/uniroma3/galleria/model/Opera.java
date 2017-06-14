@@ -1,5 +1,6 @@
 package it.uniroma3.galleria.model;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,7 +11,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-public class Opera {
+public class Opera implements Comparable<Opera> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -171,5 +172,11 @@ public class Opera {
                 "Opera[id=%d, nome='%s', descrizione='%s', anno=%d]",
                 id, nome, descrizione, anno);
     }
+
+	@Override
+	public int compareTo(Opera that) {
+		return this.nome.compareTo(that.nome);
+	}
+
 
 }

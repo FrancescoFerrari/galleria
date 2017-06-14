@@ -8,16 +8,16 @@
         <form action="#" th:action="@{/autore}" th:object="${autore}" method="post">
             <div>
                 <div>
-                    <span th:text="#{label.nome}">Nome: </span>
-                    <span><input type="text" th:field="*{nome}" /></span>
-                    <span th:if="${#fields.hasErrors('nome')}" th:text="#{label.mandatory}">Error</span>
+                    <span th:text="#{label.nomeAutore}">Nome: </span>
+                    <span><input type="text" th:field="*{nomeAutore}" /></span>
+                    <span th:if="${#fields.hasErrors('nomeAutore')}" th:text="#{label.mandatory}">Error</span>
                 </div>
                 <div>
-                    <span th:text="#{label.cognome}">Cognome: </span>
-                    <span><input type="text" th:field="*{cognome}" /></span>
-                    <span th:if="${#fields.hasErrors('cognome')}" th:text="#{label.mandatory}">Error</span>
+                    <span th:text="#{label.nazionalita}">Nazionalità: </span>
+                    <span><input type="text" th:field="*{nazionalita}" /></span>
+                    <span th:if="${#fields.hasErrors('nazionalita')}" th:text="#{label.mandatory}">Error</span>
                 </div>
-                <div>
+                  <div>
                     <span th:text="#{label.annoNascita}">AnnoNascita: </span>
                     <span><input type="text" th:field="*{annoNascita}" /></span>
                     <span th:if="${#fields.hasErrors('annoNascita')}" th:text="#{label.date}">Error</span>
