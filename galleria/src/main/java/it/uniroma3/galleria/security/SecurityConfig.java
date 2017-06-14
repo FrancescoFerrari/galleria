@@ -25,8 +25,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers("/home","/","/signUp","/stanzaList","/autoreList","/mostraAutore","/mostraStanza","/mostraOpera","/modOpera","/modificaOpera","/cancellaOpera","/confermaCancellazione")                    
-		.permitAll().antMatchers("/admin","/opera","/autore","/stanza").hasRole("ADMIN")
+		.antMatchers("/home","/","/signUp","/stanzaList","/autoreList","/mostraAutore","/mostraStanza","/mostraOpera","/modOpera","/modificaOpera","/cancellaOpera","/confermaCancellazione","/visualizzaPerAnno","/visualizzaPerTitolo")                    
+		.permitAll().antMatchers("/admin","/opera","/autore","/stanza","/modOpera").hasRole("ADMIN")
 		.anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll().and().logout()
 		.permitAll();
 		http.exceptionHandling().accessDeniedPage("/403");
