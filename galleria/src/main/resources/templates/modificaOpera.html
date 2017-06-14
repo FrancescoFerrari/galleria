@@ -5,8 +5,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<form action="#" th:action="@{/modificaOpera(id=${opera.id},nomeAutore=${opera.autore.nomeAutore})}" th:object="${opera}"
-		method="post">
+	<form action="#"
+		th:action="@{/modificaOpera(id=${opera.id})}"
+		th:object="${opera}" method="post">
 		<div>
 			<div>
 				<span th:text="#{label.stanze}">Stanza:</span> <select
@@ -43,10 +44,11 @@
 					type="text" th:field="*{anno}" /></span> <span
 					th:if="${#fields.hasErrors('anno')}" th:text="#{label.number}">Error</span>
 			</div>
+			
 			<div>
-				<span th:text="#{label.autore}">Autore: </span> <span><input
-					type="text" th:field="*{autore.nomeAutore}" /></span> <span
-					th:if="${#fields.hasErrors('autore')}" th:text="#{label.mandatory}">Error</span>
+				<span> <span th:text="#{label.autore}">Autore: </span> <input
+					type="text" name="nomeAutore" />
+				</span>
 			</div>
 			<div>
 				<span><button type="submit">Invia</button></span>
