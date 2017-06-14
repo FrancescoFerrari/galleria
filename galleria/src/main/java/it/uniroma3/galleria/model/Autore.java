@@ -53,8 +53,12 @@ public class Autore {
 		this.annoNascita = annoNascita;
 		this.opereAutore = new LinkedList<>();
 	}
-
 	
+	
+	public Long getId() {
+		return id;
+	}
+
 	public String getNazionalita() {
 		return nazionalita;
 	}
