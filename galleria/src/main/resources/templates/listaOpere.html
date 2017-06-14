@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Lista Opere</title>
+</head>
+<body>
+      <h1><span th:text="#{label.operaTitolo}">Opere da modificare :</span></h1>
+	<ul>
+		<th:foreach th:each="opera: ${opere}">
+			<li><a th:text="${opera.nome}"
+				th:href="@{/modificaOpera(id=${opera.id})}"></a></li>
+		</th:foreach>
+	</ul>
+
+</body>
+</html>

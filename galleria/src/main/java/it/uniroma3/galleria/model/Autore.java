@@ -45,7 +45,7 @@ public class Autore {
 
 	
 
-    protected Autore() {}
+    public Autore() {}
 	
 	public Autore(String nome, String nazionalita, Date annoNascita, Date annoMorte) {
 		this.nomeAutore = nome;

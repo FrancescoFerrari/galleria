@@ -28,7 +28,7 @@ public class Opera implements Comparable<Opera> {
     @NotNull
     @Size(min=1)
     private String tecnica;
-
+    @NotNull
     @Min(1)
     private Integer anno;
     

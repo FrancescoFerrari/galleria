@@ -37,10 +37,12 @@ public class OperaController  {
 	}
 
 	@PostMapping("/opera")
-	
 	public String checkOperaInfo(@Valid @ModelAttribute Opera opera, 
 			BindingResult bindingResult, Model model , @RequestParam("nomeAutore") String nomeAutore) {
-	
+
+		List<Stanza> stanze = (List<Stanza>) stanzaService.findAll();
+		model.addAttribute("stanze", stanze);
+
 		if (bindingResult.hasErrors() || autoreService.findbyName(nomeAutore.toUpperCase())==null ) {
 			return "formOpera";
 		}
@@ -48,6 +50,7 @@ public class OperaController  {
 			Autore autore = autoreService.findbyName(nomeAutore.toUpperCase());
 			opera.setAutore(autore);
 			autore.getOpereAutore().add(opera);
+			model.addAttribute(autore);
 			model.addAttribute(opera);
 			opera.getStanza().getOpere().add(opera);
 			operaService.add(opera); 
@@ -59,11 +62,50 @@ public class OperaController  {
 	public String ListaOpere(List<Opera> opere){
 		return"listaOpere";
 	}
-	
+
 	@GetMapping("/mostraOpera")
 	public String showOpera(Model model ,@RequestParam("id") Long id ){
 		Opera opera = operaService.findbyId(id);
 		model.addAttribute("opera", opera);
+		return "ritornaOpera";
+	}
+	@GetMapping("/modOpera")
+	public String operaList(Model model){
+		List<Opera> opere = (List<Opera>) operaService.findAll();
+		model.addAttribute("opere", opere);
+		return "listaOpere";
+	}
+
+	@GetMapping("/modificaOpera")
+	public String modificaOpera(Model model, @RequestParam("id") Long id){
+		List<Stanza> stanze = (List<Stanza>) stanzaService.findAll();
+		model.addAttribute("stanze", stanze);
+		Opera opera = operaService.findbyId(id);
+		Autore autore =opera.getAutore();
+		model.addAttribute("autore",autore);
+		model.addAttribute("opera", opera);
+		return "modificaOpera";
+	}
+
+	@PostMapping("/modificaOpera")
+	public String modificaInfo(@Valid @ModelAttribute Opera opera, 
+			BindingResult bindingResult, Model model, @RequestParam("nomeAutore") String nomeAutore) {
+		
+		List<Stanza> stanze =(List<Stanza>) stanzaService.findAll();
+		model.addAttribute("stanze", stanze);
+		
+		if (bindingResult.hasErrors()|| autoreService.findbyName(nomeAutore.toUpperCase())==null) {
+			return "formOpera";
+		}
+		else {
+			Autore autore= autoreService.findbyName(nomeAutore.toUpperCase());
+			opera.setAutore(autore);
+			autore.getOpereAutore().add(opera);
+		    opera.getStanza().getOpere().add(opera);
+			model.addAttribute(autore);
+			model.addAttribute(opera);
+			operaService.add(opera); 
+		}
 		return "ritornaOpera";
 	}
 }
