@@ -69,6 +69,7 @@ public class OperaController  {
 		model.addAttribute("opera", opera);
 		return "ritornaOpera";
 	}
+	
 	@GetMapping("/modOpera")
 	public String operaList(Model model){
 		List<Opera> opere = (List<Opera>) operaService.findAll();
@@ -107,6 +108,20 @@ public class OperaController  {
 			operaService.add(opera); 
 		}
 		return "ritornaOpera";
+	}
+	@GetMapping("/cancellaOpera")
+	public String cancellaOpera(Model model, @RequestParam("id") Long id){
+		Opera opera = operaService.findbyId(id);
+		model.addAttribute("opera", opera);
+		return "confermaCancellazioneOpera";
+	}
+	
+	@PostMapping("/confermaCancellazione")
+	public String confermaCancellazioneOpera(Model model, @RequestParam("id") Long id){
+		operaService.delete(id);
+		List<Opera> opere = (List<Opera>) operaService.findAll();
+		model.addAttribute("opere", opere);
+		return "listaOpere";
 	}
 }
 

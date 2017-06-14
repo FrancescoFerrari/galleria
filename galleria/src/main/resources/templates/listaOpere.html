@@ -5,11 +5,17 @@
 <title>Lista Opere</title>
 </head>
 <body>
-      <h1><span th:text="#{label.operaTitolo}">Opere da modificare :</span></h1>
+	<h1>
+		<span th:text="#{label.operaTitolo}">Opere da modificare :</span>
+	</h1>
 	<ul>
 		<th:foreach th:each="opera: ${opere}">
 			<li><a th:text="${opera.nome}"
-				th:href="@{/modificaOpera(id=${opera.id})}"></a></li>
+				th:href="@{/mostraOpera?(id=${opera.id})}"></a> <a
+				th:href="@{/modificaOpera(id=${opera.id})}"> Modifica</a>
+			<a th:href="@{/cancellaOpera(id=${opera.id})}">Cancella</a>
+			</li>
+
 		</th:foreach>
 	</ul>
 

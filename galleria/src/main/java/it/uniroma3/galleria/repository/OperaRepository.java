@@ -14,4 +14,6 @@ public interface OperaRepository extends CrudRepository<Opera, Long> {
     
     List<Opera> findByTecnica(String tecnica);
     
+    void delete(Long id);
+    
 }
