@@ -27,27 +27,27 @@ public class StanzaController {
 
 	@GetMapping("/stanza")
 	public String showForm(Stanza stanza) {
-		return "formStanza";	
+		return "/Stanza/formStanza";	
 	}
 
 
 	@PostMapping("/stanza")
 	public String checkArtistaInfo(@Valid @ModelAttribute Stanza stanza, BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
-			return "formStanza";
+			return "/Stanza/formStanza";
 		}
 		else {
 			model.addAttribute(stanza);
 			stanzaService.add(stanza);
 		}
-		return "ritornaStanza";
+		return "/Stanza/ritornaStanza";
 	}
 
 	@GetMapping("/stanzaList")
 	public String showList(Model model){
 		List<Stanza> stanze = (List<Stanza>) stanzaService.findAll();
 		model.addAttribute("stanze", stanze);
-		return "listaStanze";
+		return "/Stanza/listaStanze";
 	}
 
 	@GetMapping("/mostraStanza")
@@ -56,7 +56,7 @@ public class StanzaController {
 		List<Opera> opere= stanza.getOpere();
 		model.addAttribute("opere", opere);
 		model.addAttribute("stanza", stanza);
-		return "opereInStanza";
+		return "/Opera/opereInStanza";
 	}
 	
 	@GetMapping("/visualizzaPerAnnoStanza")
@@ -67,7 +67,7 @@ public class StanzaController {
 		model.addAttribute("stanza", stanza);
 		ComparatorePerAnno comparatore = new ComparatorePerAnno();
 		Collections.sort(opere,comparatore);
-		return "opereInStanza";
+		return "/Opera/opereInStanza";
 	}
 	
 	@GetMapping("/visualizzaPerTitoloStanza")
@@ -77,6 +77,6 @@ public class StanzaController {
 		Collections.sort(opere);
 		model.addAttribute("opere", opere);
 		model.addAttribute("stanza", stanza);
-		return "opereInStanza";
+		return "/Opera/opereInStanza";
 	}
 }

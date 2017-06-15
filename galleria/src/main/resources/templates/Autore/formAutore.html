@@ -5,12 +5,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+<h1> Inserimento nuovo autore. Non possono essere inseriti due autori con lo stesso nome.</h1>
 	<form action="#" th:action="@{/autore}" th:object="${autore}"
 		method="post">
 		<div>
 			<div>
 				<span th:text="#{label.nomeAutore}">Nome: </span> <span><input
-					type="text" th:field="*{nomeAutore}" /></span> <span
+					type="text" th:field="*{nomeAutore}" th:placheholder="${erroreNome}" /></span> <span
 					th:if="${#fields.hasErrors('nomeAutore')}"
 					th:text="#{label.mandatory}">Error</span>
 			</div>

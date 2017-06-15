@@ -33,7 +33,7 @@ public class OperaController  {
 	public String showForm(Model model, Opera opera) {
 		List<Stanza> stanze = (List<Stanza>) stanzaService.findAll();
 		model.addAttribute("stanze", stanze);
-		return "formOpera";
+		return "/Opera/formOpera";
 	}
 
 	@PostMapping("/opera")
@@ -44,7 +44,7 @@ public class OperaController  {
 		model.addAttribute("stanze", stanze);
 
 		if (bindingResult.hasErrors() || autoreService.findbyName(nomeAutore.toUpperCase())==null ) {
-			return "formOpera";
+			return "/Opera/formOpera";
 		}
 		else {
 			Autore autore = autoreService.findbyName(nomeAutore.toUpperCase());
@@ -55,26 +55,26 @@ public class OperaController  {
 			opera.getStanza().getOpere().add(opera);
 			operaService.add(opera); 
 		}
-		return "ritornaOpera";
+		return "/Opera/ritornaOpera";
 	}
 
 	@GetMapping("/operaList")
 	public String ListaOpere(List<Opera> opere){
-		return"listaOpere";
+		return"/Opera/listaOpere";
 	}
 
 	@GetMapping("/mostraOpera")
 	public String showOpera(Model model ,@RequestParam("id") Long id ){
 		Opera opera = operaService.findbyId(id);
 		model.addAttribute("opera", opera);
-		return "ritornaOpera";
+		return "/Opera/ritornaOpera";
 	}
 	
 	@GetMapping("/modOpera")
 	public String operaList(Model model){
 		List<Opera> opere = (List<Opera>) operaService.findAll();
 		model.addAttribute("opere", opere);
-		return "listaOpere";
+		return "/Opera/listaOpere";
 	}
 
 	@GetMapping("/modificaOpera")
@@ -85,7 +85,7 @@ public class OperaController  {
 		Autore autore =opera.getAutore();
 		model.addAttribute("autore",autore);
 		model.addAttribute("opera", opera);
-		return "modificaOpera";
+		return "/Opera/modificaOpera";
 	}
 
 	@PostMapping("/modificaOpera")
@@ -96,7 +96,7 @@ public class OperaController  {
 		model.addAttribute("stanze", stanze);
 		
 		if (bindingResult.hasErrors()|| autoreService.findbyName(nomeAutore.toUpperCase())==null) {
-			return "formOpera";
+			return "/Opera/formOpera";
 		}
 		else {
 			Autore autore= autoreService.findbyName(nomeAutore.toUpperCase());
@@ -111,13 +111,13 @@ public class OperaController  {
 				return "ritornaOpera";
 			}
 		}
-		return "ritornaOpera";
+		return "/Opera/ritornaOpera";
 	}
 	@GetMapping("/cancellaOpera")
 	public String cancellaOpera(Model model, @RequestParam("id") Long id){
 		Opera opera = operaService.findbyId(id);
 		model.addAttribute("opera", opera);
-		return "confermaCancellazioneOpera";
+		return "/Opera/confermaCancellazioneOpera";
 	}
 	
 	@PostMapping("/confermaCancellazione")
@@ -125,7 +125,7 @@ public class OperaController  {
 		operaService.delete(id);
 		List<Opera> opere = (List<Opera>) operaService.findAll();
 		model.addAttribute("opere", opere);
-		return "listaOpere";
+		return "/Opera/listaOpere";
 	}
 }
 

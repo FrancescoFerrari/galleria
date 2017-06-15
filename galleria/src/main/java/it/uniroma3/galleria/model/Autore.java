@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +23,9 @@ public class Autore {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
+   
+   
     @NotNull
     @Size(min=1)
     private String nomeAutore;
@@ -115,8 +118,7 @@ public class Autore {
 
 	@Override
 	public String toString() {
-		return "Artista [id=" + id + ", nome=" + nomeAutore + ", nazionalita=" + nazionalita + ", annoNascita=" + annoNascita
-				+ ", annoMorte=" + annoMorte + "]";
+		return "Artista [id=" + id + ", nome=" + nomeAutore + ", nazionalita=" + nazionalita + ", annoNascita=" + annoNascita	+ ", annoMorte=" + annoMorte + "]";
 	}
 	
 	

@@ -21,15 +21,18 @@ public class Stanza {
 	private String nome;
 	@OneToMany(mappedBy="stanza")
 	private List<Opera> opere;
+	@Size(max=1000)
+	private String urlImmagine;
 	
 	
 	
 	public Stanza(){
 	}
 	
-	public Stanza(String nome) {
+	public Stanza(String nome,String url) {
 		super();
 		this.nome = nome;
+		this.urlImmagine=url;
 		this.opere = new LinkedList<>();
 	}
 	
@@ -42,6 +45,17 @@ public class Stanza {
 	public Long getId() {
 		return id;
 	}
+	
+
+
+	public String getUrlImmagine() {
+		return urlImmagine;
+	}
+
+	public void setUrlImmagine(String urlImmagine) {
+		this.urlImmagine = urlImmagine;
+	}
+
 	public String getNome() {
 		return nome;
 	}
