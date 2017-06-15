@@ -22,7 +22,7 @@ public class Opera implements Comparable<Opera> {
     private String nome;
 
     @NotNull
-    @Size(min=1)
+    @Size(min=1,max=2000)
     private String descrizione;
     
     @NotNull
@@ -43,7 +43,7 @@ public class Opera implements Comparable<Opera> {
     
     @NotNull
     private double larghezza;
-    
+    @Size(max=1000)
     @NotNull
     private String urlImmagine;
     

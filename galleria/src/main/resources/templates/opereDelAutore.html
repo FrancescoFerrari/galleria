@@ -16,6 +16,12 @@
       </tr>
    </th:foreach>
 </table>
+	<p>
+		<a th:href="@{/visualizzaPerTitoloAutore?(id=${autore.id})}">Visualizza per titolo</a>
+	</p>
 	
+		<p>
+		<a th:href="@{/visualizzaPerAnnoAutore?(id=${autore.id})}">Visualizza per anno</a>
+	</p> 
 </body>
 </html>

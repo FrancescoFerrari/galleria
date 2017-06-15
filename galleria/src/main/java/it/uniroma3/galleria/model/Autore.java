@@ -40,6 +40,10 @@ public class Autore {
     @Past
     private Date annoMorte;
     
+    @NotNull
+    @Size(max=1000)
+    private String urlImmagine;
+    
     @OneToMany(mappedBy="autore")
     private List<Opera> opereAutore;
 
@@ -47,16 +51,25 @@ public class Autore {
 
     public Autore() {}
 	
-	public Autore(String nome, String nazionalita, Date annoNascita, Date annoMorte) {
+	public Autore(String nome, String nazionalita, Date annoNascita, Date annoMorte,String url) {
 		this.nomeAutore = nome;
 		this.nazionalita = nazionalita;
 		this.annoNascita = annoNascita;
 		this.opereAutore = new LinkedList<>();
+		this.urlImmagine=url;
 	}
 	
 	
 	public Long getId() {
 		return id;
+	}
+	
+	public String getUrlImmagine() {
+		return urlImmagine;
+	}
+
+	public void setUrlImmagine(String urlImmagine) {
+		this.urlImmagine = urlImmagine;
 	}
 
 	public String getNazionalita() {

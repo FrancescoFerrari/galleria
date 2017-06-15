@@ -59,7 +59,7 @@ public class StanzaController {
 		return "opereInStanza";
 	}
 	
-	@GetMapping("/visualizzaPerAnno")
+	@GetMapping("/visualizzaPerAnnoStanza")
 	public String showPerAnno(@RequestParam("id")long id, Model model){
 		Stanza stanza = stanzaService.findbyId(id);
 		List<Opera> opere= stanza.getOpere();
@@ -70,7 +70,7 @@ public class StanzaController {
 		return "opereInStanza";
 	}
 	
-	@GetMapping("/visualizzaPerTitolo")
+	@GetMapping("/visualizzaPerTitoloStanza")
 	public String showPerTitolo(@RequestParam("id")long id, Model model){
 		Stanza stanza = stanzaService.findbyId(id);
 		List<Opera> opere=stanza.getOpere();

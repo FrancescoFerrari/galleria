@@ -1,6 +1,8 @@
 package it.uniroma3.galleria.controller;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import it.uniroma3.galleria.comparator.ComparatorePerAnno;
 import it.uniroma3.galleria.model.Autore;
 import it.uniroma3.galleria.model.Opera;
 import it.uniroma3.galleria.service.AutoreService;
@@ -48,6 +51,11 @@ public class AutoreController {
 	        }
 	        else {
 	        	autore.setNomeAutore(autore.getNomeAutore().toUpperCase());
+	        	DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+	        	String dataNascita = df.format(autore.getAnnoNascita());
+	        	String dataMorte = df.format(autore.getAnnoMorte());
+	        	model.addAttribute("dataMorte",dataMorte);
+	        	model.addAttribute("dataNascita",dataNascita);
 	        	model.addAttribute(autore);
 	            autoreService.add(autore); 
 	        }
@@ -65,6 +73,26 @@ public class AutoreController {
 		public String showStanza(@RequestParam("id")long id, Model model){
 			Autore autore = autoreService.findbyId(id);
 			List<Opera> opere= autore.getOpereAutore();
+			model.addAttribute("opere", opere);
+			model.addAttribute("autore", autore);
+			return "opereDelAutore";
+		}
+	    @GetMapping("/visualizzaPerAnnoAutore")
+		public String showPerAnno(@RequestParam("id")long id, Model model){
+			Autore autore = autoreService.findbyId(id);
+			List<Opera> opere= autore.getOpereAutore();
+			model.addAttribute("opere", opere);
+			model.addAttribute("autore", autore);
+			ComparatorePerAnno comparatore = new ComparatorePerAnno();
+			Collections.sort(opere,comparatore);
+			return "opereDelAutore";
+		}
+		
+		@GetMapping("/visualizzaPerTitoloAutore")
+		public String showPerTitolo(@RequestParam("id")long id, Model model){
+			Autore autore = autoreService.findbyId(id);
+			List<Opera> opere=autore.getOpereAutore();
+			Collections.sort(opere);
 			model.addAttribute("opere", opere);
 			model.addAttribute("autore", autore);
 			return "opereDelAutore";
