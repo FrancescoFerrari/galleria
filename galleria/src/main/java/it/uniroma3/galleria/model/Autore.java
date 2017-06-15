@@ -48,7 +48,7 @@ public class Autore {
     @Size(max=1000)
     private String urlImmagine;
     
-    @OneToMany(mappedBy="autore",cascade=CascadeType.MERGE)
+    @OneToMany(mappedBy="autore",cascade=CascadeType.REMOVE)
     private List<Opera> opereAutore;
 
 	

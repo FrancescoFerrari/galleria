@@ -21,7 +21,7 @@ public class OperaService {
 		return this.operaRepository.findAll();
 	}
 
-	@Transactional
+	
 	public Opera save(Opera entity) {
 		if (!em.contains(entity)) {
 			em.persist(entity);
