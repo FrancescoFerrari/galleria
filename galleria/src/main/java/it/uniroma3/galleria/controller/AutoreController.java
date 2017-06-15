@@ -97,4 +97,31 @@ public class AutoreController {
 			model.addAttribute("autore", autore);
 			return "opereDelAutore";
 		}
+		
+		@GetMapping("/modAutore")
+		public String autoreList(Model model){
+			List<Autore> autori = (List<Autore>) autoreService.findAll();
+			model.addAttribute("autori", autori);
+			return "listaAutoriAmministratore";
+		}
+		
+		@GetMapping("/cancellaAutore")
+		public String cancellaAutore(Model model, @RequestParam("id") Long id){
+			Autore autore = autoreService.findbyId(id);
+			DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+			String dataMorte = df.format(autore.getAnnoMorte());
+			String dataNascita = df.format(autore.getAnnoNascita());
+			model.addAttribute("dataNascita", dataNascita);
+			model.addAttribute("dataMorte", dataMorte);
+			model.addAttribute("autore", autore);
+			return "confermaCancellazioneAutore";
+		}
+		
+		@PostMapping("/confermaCancellazioneAutore")
+		public String confermaCancellazioneAutore(Model model, @RequestParam("id") Long id){
+			autoreService.delete(id);
+			List<Autore> autori = (List<Autore>) autoreService.findAll();
+			model.addAttribute("autori", autori);
+			return "listaAutoriAmministratore";
+		}
 }

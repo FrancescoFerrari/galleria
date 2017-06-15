@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
+	<h1> <b>  Attenzione: CANCELLANDO QUESTO AUTORE, CANCELLERAI ANCHE LE OPERE COLLEGATE!  </b></h1>
 	<div>
     	<p th:text="'Nome: ' + ${autore.nomeAutore}" />
     </div>
@@ -12,10 +13,15 @@
     	<p th:text="'Nazionalita: ' + ${autore.nazionalita}" />
     </div>
 	<div>
-    	<p th:text="'Anno di nascita: ' + ${dataNascita}" />	
+    	<p th:if="${autore.annoNascita}" th:text="#{label.annoNascita} +' '+ ${dataNascita}"></p>
     </div>
     <div>
     	<p th:if="${autore.annoMorte}" th:text="#{label.annoMorte} +' '+ ${dataMorte}"></p>
     </div>
+    <form action="#" th:action="@{/confermaCancellazioneAutore(id=${autore.id})}"
+		th:object="${autore}" method="post">
+		<span><button type="submit">Cancella</button></span>
+	</form>
+	<a th:href="@{/modAutore}">Annulla</a>
 </body>
 </html>

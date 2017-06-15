@@ -35,7 +35,7 @@
                 </div>
                 <div>
                     <span th:text="#{label.descrizione}">Descrizione: </span>
-                    <span><input type="text" th:field="*{descrizione}" /></span>
+                    <span><textarea cols="30" rows="10" th:field="*{descrizione}" > </textarea></span>
                     <span th:if="${#fields.hasErrors('descrizione')}" th:text="#{label.mandatory}">Error</span>
                 </div>
                      <div>

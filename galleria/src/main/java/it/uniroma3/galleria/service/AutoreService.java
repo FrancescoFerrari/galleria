@@ -28,4 +28,8 @@ public class AutoreService {
 		public Autore findbyName(String nomeAutore){
 			return  this.autoreRepository.findByNomeAutore(nomeAutore);
 		}
+		public void delete(Long id) {
+			this.autoreRepository.delete(id);
+
+		}
 }

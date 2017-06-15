@@ -105,7 +105,11 @@ public class OperaController  {
 		    opera.getStanza().getOpere().add(opera);
 			model.addAttribute(autore);
 			model.addAttribute(opera);
-			operaService.add(opera); 
+			try {
+				operaService.add(opera); 
+			} catch (Exception e) {
+				return "ritornaOpera";
+			}
 		}
 		return "ritornaOpera";
 	}

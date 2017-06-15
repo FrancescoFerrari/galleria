@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Lista Autori</title>
+</head>
+<body>
+	<h1>
+		<span th:text="#{label.operaTitolo}">Autori :</span>
+	</h1>
+	<ul>
+		<th:foreach th:each="autore: ${autori}">
+			<li><a th:text="${autore.nomeAutore}"
+				th:href="@{/mostraAutore?(id=${autore.id})}"></a> 
+			<a th:href="@{/cancellaAutore(id=${autore.id})}">Cancella</a>
+			</li>
+
+		</th:foreach>
+	</ul>
+
+</body>
+</html>

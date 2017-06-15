@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -44,7 +45,7 @@ public class Autore {
     @Size(max=1000)
     private String urlImmagine;
     
-    @OneToMany(mappedBy="autore")
+    @OneToMany(mappedBy="autore",cascade=CascadeType.ALL)
     private List<Opera> opereAutore;
 
 	
