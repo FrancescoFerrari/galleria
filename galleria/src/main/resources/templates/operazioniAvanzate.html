@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Le Nostre Stanze</title>
@@ -55,15 +55,18 @@
 	</div>
 </div>
 </section>
-     <h1 style="color:blue"> Hello! This is Admin Page!</h1>
-     
-     <a style="color:blue" th:href="@{/}">Go to Home Page</a>
-     
-     <br/>
-     
-     <form th:action="@{/logout}" method="post">
-         <input type="submit" value="Sign Out"/>
-     </form>
-     
- </body>
+	<p>
+		<a href="/opera">Inserisci nuova opera </a>
+	</p>
+	<p>
+		<a href="/autore">Inserisci nuovo Autore</a>
+	</p>
+	<p>
+		<a href="/stanza">Inserisci una nuova Stanza </a>
+	</p>
+
+	<p>
+		<a href="/modOpera">Modifica Cancella Opera </a>
+	</p>
+</body>
 </html>
