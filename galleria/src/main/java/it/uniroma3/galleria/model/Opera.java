@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
 public class Opera implements Comparable<Opera> {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
@@ -32,10 +32,10 @@ public class Opera implements Comparable<Opera> {
     @Min(1)
     private Integer anno;
     
-    @ManyToOne
+    @ManyToOne(optional=true)
     private Autore autore;
     
-    @ManyToOne
+    @ManyToOne(optional=true)
     private Stanza stanza;
     
     @NotNull

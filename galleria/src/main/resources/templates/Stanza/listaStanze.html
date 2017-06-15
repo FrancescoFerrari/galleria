@@ -9,6 +9,8 @@
 <!-- css -->
 <link href="../static/css/bootstrap-responsive.css"
 	th:href="@{/css/bootstrap-responsive.css}" rel="stylesheet" />
+<link href="../static/css/pagineStyle.css"
+	th:href="@{/css/pagineStyle.css}" rel="stylesheet" />
 <link href="../static/css/style.css" th:href="@{/css/style.css}"
 	rel="stylesheet" />
 <link href="../static/color/default.css" th:href="@{/color/default.css}"
@@ -25,7 +27,6 @@
 	th:href="@{/img/favicon.ico}" />
 </head>
 <body>
-	<!-- navbar -->
 	<div class="navbar-wrapper">
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
@@ -67,7 +68,7 @@
 	<!-- DA QUI LO CAMBI -->
 	<div class="container">
 		<div class="row">
-			<ul>
+			
 				<th:foreach th:each="stanza: ${stanze}">
 					<li>
 						<div class="service-box">
@@ -78,11 +79,10 @@
 									th:href="@{/mostraStanza?(id=${stanza.id})}"></a>
 							</h2>
 							<p></p>
-
 						</div>
 					</li>
 				</th:foreach>
-			</ul>
+			
 		</div>
 	</div>
 	<!-- SINO A QUI -->

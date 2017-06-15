@@ -108,7 +108,7 @@ public class OperaController  {
 			try {
 				operaService.add(opera); 
 			} catch (Exception e) {
-				return "ritornaOpera";
+				return "/Opera/modificaOpera";
 			}
 		}
 		return "/Opera/ritornaOpera";

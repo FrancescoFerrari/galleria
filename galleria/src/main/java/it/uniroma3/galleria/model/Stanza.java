@@ -3,6 +3,7 @@ package it.uniroma3.galleria.model;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +20,7 @@ public class Stanza {
 	@NotNull
 	@Size(min=1)
 	private String nome;
-	@OneToMany(mappedBy="stanza")
+	@OneToMany(mappedBy="stanza",cascade=CascadeType.MERGE)
 	private List<Opera> opere;
 	@Size(max=1000)
 	private String urlImmagine;
@@ -36,6 +37,13 @@ public class Stanza {
 		this.opere = new LinkedList<>();
 	}
 	
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public Stanza(String nome, List<Opera> opere) {
 		super();
 		this.nome = nome;
