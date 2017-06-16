@@ -9,8 +9,16 @@
 		method="post">
 		<div>
 			<div>
-				<span th:text="#{label.amministratore}">Amministratore:</span> <span><input
-					type="text" th:name="username"/></span> <span
+				<span th:text="#{label.stanze}">Stanza:</span> <select
+					th:field="*{stanza}">
+					<option th:value="${null}"> Non esporre l'opera per ora </option> 
+					<option th:each="stanza : ${stanze}" th:value="${stanza.id}"
+						th:text="${stanza.nome}"></option>
+				</select>
+			</div>
+			<div>
+				<span th:text="#{label.nome}">Nome: </span> <span><input
+					type="text" th:field="*{nome}" /></span> <span
 					th:if="${#fields.hasErrors('nome')}" th:text="#{label.mandatory}">Error</span>
 			</div>
 			<div>
@@ -57,4 +65,5 @@
 		</div>
 	</form>
 </body>
+
 </html>

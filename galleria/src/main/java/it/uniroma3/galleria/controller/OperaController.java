@@ -54,7 +54,13 @@ public class OperaController  {
 			autore.getOpereAutore().add(opera);
 			model.addAttribute(autore);
 			model.addAttribute(opera);
-			opera.getStanza().getOpere().add(opera);
+			if(opera.getStanza()==null){
+				model.addAttribute("nomeStanza","L'opera non è attualmente esposta.");
+			}
+			else{
+				model.addAttribute("nomeStanza",opera.getStanza().getNome());
+				opera.getStanza().getOpere().add(opera);
+			}
 			operaService.add(opera); 
 		}
 		return "/Opera/ritornaOpera";
@@ -145,14 +151,14 @@ public class OperaController  {
 		model.addAttribute("opere", opere);
 		return "/Opera/listaOpere";
 	}
-	
+
 	@GetMapping("/operaListTotale")
 	public String showList(Model model){
 		List<Opera> opere = (List<Opera>) operaService.findAll();
 		model.addAttribute("opere", opere);
 		return "/Opera/listaTutteOpere";
 	}
-	
+
 	@GetMapping("/visualizzaPerAnnoOpera")
 	public String showPerAnno(Model model){
 		List<Opera> opere = (List<Opera>) operaService.findAll();
