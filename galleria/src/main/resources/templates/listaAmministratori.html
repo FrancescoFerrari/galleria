@@ -2,15 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Le Nostre Stanze</title>
+<title>AreaRiservata</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="" />
 <meta name="author" content="" />
 <!-- css -->
 <link href="../static/css/bootstrap-responsive.css"
 	th:href="@{/css/bootstrap-responsive.css}" rel="stylesheet" />
-<link href="../static/css/pagineStyle.css"
-	th:href="@{/css/pagineStyle.css}" rel="stylesheet" />
 <link href="../static/css/style.css" th:href="@{/css/style.css}"
 	rel="stylesheet" />
 <link href="../static/color/default.css" th:href="@{/color/default.css}"
@@ -27,6 +25,7 @@
 	th:href="@{/img/favicon.ico}" />
 </head>
 <body>
+	<!-- navbar -->
 	<div class="navbar-wrapper">
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
@@ -52,43 +51,48 @@
 			</div>
 		</div>
 	</div>
-	<section class="spacer green">
+
+
+	<section class="spacer orange">
 		<div class="container">
 			<div class="row">
 				<div class="span12 aligncenter flyUp">
 					<h2 class="pagetitle">
-						I nostri <strong>Autori</strong>
+						 <strong>I nostri amministratori</strong>
 					</h2>
 				</div>
 			</div>
 		</div>
 	</section>
 
+	<section>
+		<div class="container">
+			<div id="lista" class="row col-md-6 col-md-offset-2 custyle">
+				<table class="table table-striped custab">
+					<thead>
+						<tr>
+							<th>Amministratori:</th>
+						</tr>
+					</thead>
 
-	<!-- DA QUI LO CAMBI -->
-	<ul>
-		<th:foreach th:each="amministratore: ${amministratori}">
-			<li><a th:text="${amministratore.username}"
-				th:href="@{/stampaAmministratore?(id=${amministratore.id})}"></a></li>
-		</th:foreach>
-	</ul>
+					<th:foreach th:each="amministratore: ${amministratori}">
+						<tr>
+							<td><a th:text="${amministratore.username}"
+								th:href="@{/stampaAmministratore?(id=${amministratore.id})}"></a></td>
+						</tr>
+					</th:foreach>
+				</table>
 
-	<!-- SINO A QUI -->
+			</div>
+		</div>
+	</section>
+
 
 	<footer>
 		<div class="container">
 			<div class="row">
 				<div class="span6 offset3">
-					<ul class="social-networks">
-						<li><a href="#"><i
-								class="icon-circled icon-bgdark icon-instagram icon-2x"></i></a></li>
-						<li><a href="#"><i
-								class="icon-circled icon-bgdark icon-twitter icon-2x"></i></a></li>
-						<li><a href="#"><i
-								class="icon-circled icon-bgdark icon-dribbble icon-2x"></i></a></li>
-						<li><a href="#"><i
-								class="icon-circled icon-bgdark icon-pinterest icon-2x"></i></a></li>
-					</ul>
+
 					<p class="copyright">&copy; 2013 Maxim Inc corporate. All
 						rights reserved.</p>
 				</div>
