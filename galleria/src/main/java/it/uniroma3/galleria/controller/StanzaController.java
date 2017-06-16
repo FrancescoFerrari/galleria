@@ -36,7 +36,7 @@ public class StanzaController {
 
 
 	@PostMapping("/stanza")
-	public String checkArtistaInfo(@Valid @ModelAttribute Stanza stanza, BindingResult bindingResult, Model model) {
+	public String checkStanzaInfo(@Valid @ModelAttribute Stanza stanza, BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
 			return "/Stanza/formStanza";
 		}

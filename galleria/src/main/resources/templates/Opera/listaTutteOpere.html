@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>listaOpere</title>
+</head>
+<body>
+<h1>Opere presenti nella nostra galleria: </h1>
+<table>
+	<th:foreach th:each="opera: ${opere}">
+      <tr>
+      <td>
+      <a th:text="${opera.nome}" th:href="@{/mostraOpera?(id=${opera.id})}"></a>
+      </td> 
+         
+      </tr>
+   </th:foreach>
+</table>
+	<p>
+		<a th:href="@{/visualizzaPerTitoloOpera}">Visualizza per titolo</a>
+	</p>
+	
+		<p>
+		<a th:href="@{/visualizzaPerAnnoOpera}">Visualizza per anno</a>
+	</p> 
+	<p>
+		<a th:href="@{/autoreList}">Visualizza per autore</a>
+	</p> 
+	
+</body>
+</html>

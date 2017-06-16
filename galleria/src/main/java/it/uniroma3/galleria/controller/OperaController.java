@@ -1,5 +1,6 @@
 package it.uniroma3.galleria.controller;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import it.uniroma3.galleria.comparator.ComparatorePerAnno;
 import it.uniroma3.galleria.model.Autore;
 import it.uniroma3.galleria.model.Opera;
 import it.uniroma3.galleria.model.Stanza;
@@ -118,6 +120,11 @@ public class OperaController  {
 				return "/Opera/modificaOpera";
 			}
 		}
+		if(opera.getStanza()!=null)
+			model.addAttribute("nomeStanza",opera.getStanza().getNome());
+		else
+			model.addAttribute("nomeStanza","opera non esposta");
+
 		return "/Opera/ritornaOpera";
 	}
 	@GetMapping("/cancellaOpera")
@@ -134,5 +141,30 @@ public class OperaController  {
 		model.addAttribute("opere", opere);
 		return "/Opera/listaOpere";
 	}
+	
+	@GetMapping("/operaListTotale")
+	public String showList(Model model){
+		List<Opera> opere = (List<Opera>) operaService.findAll();
+		model.addAttribute("opere", opere);
+		return "/Opera/listaTutteOpere";
+	}
+	
+	@GetMapping("/visualizzaPerAnnoOpera")
+	public String showPerAnno(Model model){
+		List<Opera> opere = (List<Opera>) operaService.findAll();
+		model.addAttribute("opere", opere);
+		ComparatorePerAnno comparatore = new ComparatorePerAnno();
+		Collections.sort(opere,comparatore);
+		return "/Opera/listaTutteOpere";
+	}
+
+	@GetMapping("/visualizzaPerTitoloOpera")
+	public String showPerTitolo(Model model){
+		List<Opera> opere=(List<Opera>) operaService.findAll();
+		Collections.sort(opere);
+		model.addAttribute("opere", opere);
+		return "/Opera/listaTutteOpere";
+	}
+
 }
 

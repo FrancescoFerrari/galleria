@@ -22,11 +22,11 @@ public class Ruolo {
     private String nome;
     
 public Ruolo(){
-this.ruolo = "ROLE_USER";
+this.ruolo = "ROLE_ADMIN";
 }
 public Ruolo(String nome){
 this.nome = nome;
-this.ruolo = "ROLE_USER";
+this.ruolo = "ROLE_ADMIN";
 }
 
 public Long getId() {

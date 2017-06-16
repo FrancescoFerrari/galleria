@@ -5,36 +5,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import it.uniroma3.galleria.model.Ruolo;
-import it.uniroma3.galleria.model.User;
+import it.uniroma3.galleria.model.Amministratore;
 import it.uniroma3.galleria.service.RuoloService;
-import it.uniroma3.galleria.service.UserService;
+import it.uniroma3.galleria.service.AmministratoreService;
 
 @Controller
 public class WebController {
 
 	@Autowired
-	private UserService userService;
+	private AmministratoreService amministratoreService;
 	@Autowired
 	private RuoloService ruoloService;
 
-//	@RequestMapping(value={"/","/home"})
-//	public String home(){
-//		return "home";
-//	}
+
 
 	@RequestMapping(value={"/signUp"})
-	public String signUp(@Valid @ModelAttribute User user, 
+	public String signUp(@Valid @ModelAttribute Amministratore user, 
 			BindingResult bindingResult, Model model){
 		if (bindingResult.hasErrors()) {
 			return "signUp";
 		}
 		else {
 			model.addAttribute(user);
-			userService.add(user); 
+			amministratoreService.add(user); 
 			ruoloService.add(new Ruolo(user.getUsername()));
 		}
 		return "datiUtente";
@@ -63,6 +61,26 @@ public class WebController {
 	@RequestMapping(value={"/opAvanzate"})
 	public String ShowOperazioniAvanzate(){
 		return "operazioniAvanzate";
+	}
+	
+
+	@GetMapping("/insAmministratore")
+	public String showForm(Amministratore amministratore) {
+		return "formAmministratore";	
+	}
+
+
+	@PostMapping("/mostraAmministratore")
+	public String checkAmministratoreInfo(@Valid @ModelAttribute Amministratore amministratore,BindingResult bindingResult, Model model) {
+		if (bindingResult.hasErrors() || amministratoreService.findByUsername(amministratore.getUsername())!=null) {
+			return "formAmministratore";
+		}
+		else {
+			model.addAttribute(amministratore);
+			amministratoreService.add(amministratore); 
+			ruoloService.add(new Ruolo(amministratore.getUsername()));
+		}
+		return "mostraAmministratore";
 	}
 
 }
