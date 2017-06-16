@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import it.uniroma3.galleria.comparator.ComparatorePerAnno;
+import it.uniroma3.galleria.comparator.ComparatorePerAnnoNascita;
 import it.uniroma3.galleria.model.Autore;
 import it.uniroma3.galleria.model.Opera;
 import it.uniroma3.galleria.service.AutoreService;
@@ -137,5 +138,21 @@ public class AutoreController {
 		List<Autore> autori = (List<Autore>) autoreService.findAll();
 		model.addAttribute("autori", autori);
 		return "/Autore/listaAutoriAmministratore";
+	}
+	@GetMapping("/visualizzaPerAnnoNascitaAutore")
+	public String showPerAnnoNascita(Model model){
+		List<Autore> autori = (List<Autore>) autoreService.findAll();
+		model.addAttribute("autori", autori);
+		ComparatorePerAnnoNascita comparatore = new ComparatorePerAnnoNascita();
+		Collections.sort(autori,comparatore);
+		return "/Autore/listaAutori";
+	}
+
+	@GetMapping("/visualizzaPerNomeAutore")
+	public String showPerTitolo(Model model){
+		List<Autore> autori=(List<Autore>) autoreService.findAll();
+		Collections.sort(autori);
+		model.addAttribute("autori", autori);
+		return "/Autore/listaAutori";
 	}
 }
