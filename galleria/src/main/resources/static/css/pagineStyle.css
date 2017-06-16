@@ -1,3 +1,8 @@
+#nomeStanza {
+	color: #fff;
+	text-decoration: none;
+}
+
 .service-box {
 	margin-top: 50px;
 	margin-bottom: 50px;
@@ -11,12 +16,18 @@ li {
 	float: left;
 }
 
+.conteinerss {
+	margin-right: 30px;
+	text-align: center;
+}
+
 div#ordinamento {
 	float: left;
 }
-nav{
+
+nav {
+	left: 0;
 	position: relative;
-	height: 100%;
 }
 
 .sidenav {
@@ -26,7 +37,7 @@ nav{
 	z-index: 1;
 	top: 0;
 	left: 0;
-	right:0;
+	right: 0;
 	background-color: #333333;
 	overflow-x: hidden;
 	transition: 0.5s;
@@ -62,4 +73,19 @@ nav{
 	.sidenav a {
 		font-size: 18px;
 	}
+}
+
+.custab {
+	border: 1px solid #ccc;
+	padding: 5px;
+	margin: 5% 0;
+	box-shadow: 3px 3px 2px #ccc;
+	transition: 0.5s;
+}
+
+.custab:hover {
+	box-shadow: 3px 3px 0px transparent;
+	transition: 0.5s;
+}
+.conteinerone{
 }
