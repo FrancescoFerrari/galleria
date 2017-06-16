@@ -131,6 +131,10 @@ public class OperaController  {
 	public String cancellaOpera(Model model, @RequestParam("id") Long id){
 		Opera opera = operaService.findbyId(id);
 		model.addAttribute("opera", opera);
+		if(opera.getStanza()==null)
+			model.addAttribute("nomeStanza","l'opera non è ancora stata esposta");
+		else
+			model.addAttribute("nomeStanza",opera.getStanza().getNome());
 		return "/Opera/confermaCancellazioneOpera";
 	}
 
