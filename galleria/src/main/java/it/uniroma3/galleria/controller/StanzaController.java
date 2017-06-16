@@ -24,7 +24,7 @@ import it.uniroma3.galleria.service.StanzaService;
 public class StanzaController {
 	@Autowired
 	StanzaService stanzaService;
-	
+
 	@Autowired
 	OperaService operaService;
 
@@ -62,7 +62,7 @@ public class StanzaController {
 		model.addAttribute("stanza", stanza);
 		return "/Opera/opereInStanza";
 	}
-	
+
 	@GetMapping("/visualizzaPerAnnoStanza")
 	public String showPerAnno(@RequestParam("id")long id, Model model){
 		Stanza stanza = stanzaService.findbyId(id);
@@ -73,7 +73,7 @@ public class StanzaController {
 		Collections.sort(opere,comparatore);
 		return "/Opera/opereInStanza";
 	}
-	
+
 	@GetMapping("/visualizzaPerTitoloStanza")
 	public String showPerTitolo(@RequestParam("id")long id, Model model){
 		Stanza stanza = stanzaService.findbyId(id);
@@ -83,7 +83,7 @@ public class StanzaController {
 		model.addAttribute("stanza", stanza);
 		return "/Opera/opereInStanza";
 	}
-	
+
 	@GetMapping("/modStanza")
 	public String stanzaList(Model model){
 		List<Stanza> stanze = (List<Stanza>) stanzaService.findAll();
@@ -110,5 +110,23 @@ public class StanzaController {
 		List<Stanza> stanze = (List<Stanza>) stanzaService.findAll();
 		model.addAttribute("stanze", stanze);
 		return "/Stanza/listaStanzeAmministratore";
+	}
+
+	@GetMapping("/modificaStanza")
+	public String modificaStanza(Model model, @RequestParam("id") Long id){
+		Stanza stanza = stanzaService.findbyId(id);
+		model.addAttribute("stanza", stanza);
+		return "/Stanza/modificaStanza";
+	}
+
+	@PostMapping("/modificaStanza")
+	public String modificaInfo(@Valid @ModelAttribute Stanza stanza, 
+			BindingResult bindingResult, Model model) {
+		if (bindingResult.hasErrors()) {
+			return "/Stanza/modificaStanza";
+		}
+		stanzaService.add(stanza); 
+		return "/Stanza/ritornaStanza";
+
 	}
 }

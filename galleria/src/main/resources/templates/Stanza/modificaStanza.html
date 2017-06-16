@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Modifica Stanza</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+    <body>
+    <form action="#"
+		th:action="@{/modificaStanza(id=${stanza.id})}"
+		th:object="${stanza}" method="post">
+            <div>
+                <div>
+                    <span th:text="#{label.nome}">Nome: </span>
+                    <span><input type="text" th:field="*{nome}" /></span>
+                    <span th:if="${#fields.hasErrors('nome')}" th:text="#{label.mandatory}">Error</span>
+                </div>
+                <div>
+                    <span th:text="#{label.urlImmagine}">Immagine Url: </span>
+                    <span><input type="text" th:field="*{urlImmagine}" /></span>
+                    <span th:if="${#fields.hasErrors('urlImmagine')}" th:text="#{label.mandatory}">Error</span>
+                </div>
+                 
+                <div>
+                    <span><button type="submit">Invia</button></span>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>
