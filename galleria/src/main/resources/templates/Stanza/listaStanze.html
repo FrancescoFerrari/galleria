@@ -66,14 +66,15 @@
 
 
 	<!-- DA QUI LO CAMBI -->
+	
 	<div class="container">
 		<div class="row">
-			
+			<ul>
 				<th:foreach th:each="stanza: ${stanze}">
 					<li>
 						<div class="service-box">
 							<img th:src="@{${stanza.urlImmagine}}" alt="Stanza"
-								style="height: 160px; width: 160px" />
+								style="height: 220px; width: 220px" />
 							<h2>
 								<a th:text="${stanza.nome}"
 									th:href="@{/mostraStanza?(id=${stanza.id})}"></a>
@@ -82,7 +83,7 @@
 						</div>
 					</li>
 				</th:foreach>
-			
+			</ul>
 		</div>
 	</div>
 	<!-- SINO A QUI -->

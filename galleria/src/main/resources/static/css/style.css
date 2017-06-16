@@ -25,6 +25,7 @@ CONTENTS:
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 /* bootstrap */
 @import url('bootstrap.css');
+
 /* bootstrap responsive */
 @import url('bootstrap-responsive.css');
 /* prettyPhoto */
@@ -371,7 +372,7 @@ header .logo {
 
 /* --- Header slider --- */
 #header-wrapper.header-slider {
-	background: #444 url(../img/bg/bg-1.jpg) no-repeat center center fixed;
+	background: #444 url(../img/bg/bg.p1.jpg) no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -481,6 +482,9 @@ section.spacer {
 
 .spacer.green,.section.green h4 {
 	color:#fff;
+}
+.spacer.grey,.section.grey{
+	background: #2b2b2b;
 }
 
 .spacer.yellow,.section.yellow  {

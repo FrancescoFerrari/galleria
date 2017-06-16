@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Le Nostre Stanze</title>
+<title>I nostri Autori</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="" />
 <meta name="author" content="" />
@@ -66,13 +66,26 @@
 
 
 	<!-- DA QUI LO CAMBI -->
-	<ul>
-		<th:foreach th:each="autore: ${autori}">
-			<li><a th:text="${autore.nomeAutore}"
-				th:href="@{/mostraAutore?(id=${autore.id})}"></a></li>
-		</th:foreach>
-	</ul>
 
+	<div class="container">
+		<div class="row">
+			<ul>
+				<th:foreach th:each="autore: ${autori}">
+					<li id="elemento">
+						<div id="elemento" class="service-box">
+							<img th:src="@{${autore.urlImmagine}}" alt="Autore"
+								style="height: 220px; width: 220px" />
+							<h2>
+								<a th:text="${autore.nomeAutore}"
+									th:href="@{/mostraAutore?(id=${autore.id})}"></a>
+							</h2>
+							<p></p>
+						</div>
+					</li>
+				</th:foreach>
+			</ul>
+		</div>
+	</div>
 	<!-- SINO A QUI -->
 
 	<footer>

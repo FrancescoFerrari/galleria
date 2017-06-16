@@ -1,0 +1,65 @@
+.service-box {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	margin-left: 50px;
+	margin-right: 20px;
+	float: left;
+}
+
+li {
+	color: white;
+	float: left;
+}
+
+div#ordinamento {
+	float: left;
+}
+nav{
+	position: relative;
+	height: 100%;
+}
+
+.sidenav {
+	float: left;
+	width: 0;
+	position: relative;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	right:0;
+	background-color: #333333;
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 60px;
+}
+
+.sidenav a {
+	margin-top: 16px;
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #ffffff;
+	display: block;
+	transition: 0.3s;
+}
+
+.sidenav a:hover, .offcanvas a:focus {
+	color: #00c4c4;
+}
+
+.sidenav .closebtn {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+	.sidenav {
+		padding-top: 15px;
+	}
+	.sidenav a {
+		font-size: 18px;
+	}
+}
