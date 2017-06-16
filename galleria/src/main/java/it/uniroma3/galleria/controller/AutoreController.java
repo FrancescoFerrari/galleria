@@ -84,6 +84,11 @@ public class AutoreController {
 		Autore autore = autoreService.findbyId(id);
 		List<Opera> opere= autore.getOpereAutore();
 		model.addAttribute("opere", opere);
+		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+		String dataNascita = df.format(autore.getAnnoNascita());
+		String dataMorte= df.format(autore.getAnnoMorte());
+		model.addAttribute("dataNascita",dataNascita);
+		model.addAttribute("dataMorte",dataMorte);
 		model.addAttribute("autore", autore);
 		return "/Opera/opereDelAutore";
 	}
