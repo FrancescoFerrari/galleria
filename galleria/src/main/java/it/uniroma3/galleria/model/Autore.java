@@ -18,7 +18,7 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 @Entity
-public class Autore {
+public class Autore implements Comparable<Autore> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,7 +45,7 @@ public class Autore {
     private Date annoMorte;
     
     @NotNull
-    @Size(max=1000)
+    @Size(max=3000)
     private String urlImmagine;
     
     @OneToMany(mappedBy="autore",cascade=CascadeType.REMOVE)
@@ -119,6 +119,11 @@ public class Autore {
 	@Override
 	public String toString() {
 		return "Artista [id=" + id + ", nome=" + nomeAutore + ", nazionalita=" + nazionalita + ", annoNascita=" + annoNascita	+ ", annoMorte=" + annoMorte + "]";
+	}
+
+	@Override
+	public int compareTo(Autore that) {
+		return this.getNomeAutore().compareTo(that.getNomeAutore());
 	}
 	
 	

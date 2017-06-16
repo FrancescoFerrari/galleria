@@ -65,7 +65,33 @@
 	</section>
 
 
+
+
 	<!-- DA QUI LO CAMBI -->
+	<nav>
+		<section>
+
+			<div id="mySidenav" class="sidenav">
+				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				<a th:href="@{/visualizzaPerNomeAutore}">per Nome</a> <a
+					th:href="@{/visualizzaPerAnnoNascitaAutore}">per Anno </a>
+			</div>
+			<span style="font-size: 30px; cursor: pointer" onclick="openNav()">&#9776;
+				Ordina</span>
+
+
+			<script>
+				function openNav() {
+					document.getElementById("mySidenav").style.width = "250px";
+
+				}
+
+				function closeNav() {
+					document.getElementById("mySidenav").style.width = "0";
+				}
+			</script>
+		</section>
+	</nav>
 
 	<div class="container">
 		<div class="row">
