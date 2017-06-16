@@ -157,7 +157,6 @@ public class AutoreController {
 
 	@GetMapping("/modificaAutore")
 	public String modificaAutore(Model model,@RequestParam("id")Long id) {
-
 		Autore autore=autoreService.findbyId(id);
 		model.addAttribute("autore",autore);
 		return "Autore/modificaAutore";
@@ -170,6 +169,7 @@ public class AutoreController {
 			return "Autore/modificaAutore";
 		}
 		else {
+			autore.setNomeAutore(autore.getNomeAutore().toUpperCase());
 			model.addAttribute(autore);
 			try{
 				autoreService.add(autore);
