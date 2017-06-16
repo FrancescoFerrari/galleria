@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<h1> <b>  Attenzione: SEI SICURO DI VOLER CANCELLARE QUESTA STANZA?  </b></h1>
+	<div>
+    	<p th:text="'Nome: ' + ${stanza.nome}" />
+    </div>
+    <div>
+		<p th:text="'Immagine:'" />
+		<img th:src="@{${stanza.urlImmagine}}" alt="Immagine Stanza" style="height: 500px; width: 500px" />
+	</div>
+    <form action="#" th:action="@{/confermaCancellazioneStanza(id=${stanza.id})}"
+		th:object="${stanza}" method="post">
+		<span><button type="submit">Cancella</button></span>
+	</form>
+	<a th:href="@{/modStanza}">Annulla</a>
+</body>
+</html>

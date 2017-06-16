@@ -12,6 +12,7 @@
 			<div>
 				<span th:text="#{label.stanze}">Stanza:</span> <select
 					th:field="*{stanza}">
+					<option th:value="${null}" > Opera non esposta </option>
 					<option th:each="stanza : ${stanze}" th:value="${stanza.id}"
 						th:text="${stanza.nome}"></option>
 				</select>

@@ -17,12 +17,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import it.uniroma3.galleria.comparator.ComparatorePerAnno;
 import it.uniroma3.galleria.model.Opera;
 import it.uniroma3.galleria.model.Stanza;
+import it.uniroma3.galleria.service.OperaService;
 import it.uniroma3.galleria.service.StanzaService;
 
 @Controller
 public class StanzaController {
 	@Autowired
 	StanzaService stanzaService;
+	
+	@Autowired
+	OperaService operaService;
 
 
 	@GetMapping("/stanza")
@@ -78,5 +82,33 @@ public class StanzaController {
 		model.addAttribute("opere", opere);
 		model.addAttribute("stanza", stanza);
 		return "/Opera/opereInStanza";
+	}
+	
+	@GetMapping("/modStanza")
+	public String stanzaList(Model model){
+		List<Stanza> stanze = (List<Stanza>) stanzaService.findAll();
+		model.addAttribute("stanze", stanze);
+		return "/Stanza/listaStanzeAmministratore";
+	}
+
+	@GetMapping("/cancellaStanza")
+	public String cancellaStanza(Model model, @RequestParam("id") Long id){
+		Stanza stanza = stanzaService.findbyId(id);
+		for(Opera o : stanza.getOpere()){
+			o.setStanza(null);
+			operaService.add(o);
+		}
+		stanza.setOpere(null);
+		stanzaService.add(stanza);
+		model.addAttribute("stanza", stanza);
+		return "/Stanza/confermaCancellazioneStanza";
+	}
+
+	@PostMapping("/confermaCancellazioneStanza")
+	public String confermaCancellazioneStanza(Model model, @RequestParam("id") Long id){
+		stanzaService.delete(id);
+		List<Stanza> stanze = (List<Stanza>) stanzaService.findAll();
+		model.addAttribute("stanze", stanze);
+		return "/Stanza/listaStanzeAmministratore";
 	}
 }
