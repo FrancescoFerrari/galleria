@@ -48,7 +48,7 @@ public class Autore implements Comparable<Autore> {
     @Size(max=3000)
     private String urlImmagine;
     
-    @OneToMany(mappedBy="autore",cascade=CascadeType.REMOVE)
+    @OneToMany(mappedBy="autore",cascade=CascadeType.ALL)
     private List<Opera> opereAutore;
 
 	
@@ -94,6 +94,12 @@ public class Autore implements Comparable<Autore> {
 
 	public String getNomeAutore() {
 		return nomeAutore;
+	}
+	
+	
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public void setNomeAutore(String nome) {

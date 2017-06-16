@@ -2,13 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>AreaRiservataAutori</title>
+<title>Le Nostre Stanze</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="" />
 <meta name="author" content="" />
 <!-- css -->
 <link href="../static/css/bootstrap-responsive.css"
 	th:href="@{/css/bootstrap-responsive.css}" rel="stylesheet" />
+<link href="../static/css/pagineStyle.css"
+	th:href="@{/css/pagineStyle.css}" rel="stylesheet" />
 <link href="../static/css/style.css" th:href="@{/css/style.css}"
 	rel="stylesheet" />
 <link href="../static/color/default.css" th:href="@{/color/default.css}"
@@ -25,7 +27,6 @@
 	th:href="@{/img/favicon.ico}" />
 </head>
 <body>
-	<!-- navbar -->
 	<div class="navbar-wrapper">
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
@@ -51,14 +52,12 @@
 			</div>
 		</div>
 	</div>
-
-
-	<section class="spacer orange">
+	<section class="spacer green">
 		<div class="container">
 			<div class="row">
 				<div class="span12 aligncenter flyUp">
 					<h2 class="pagetitle">
-						Operazioni <strong>Autori</strong>
+						Le nostre <strong>Stanze</strong>
 					</h2>
 				</div>
 			</div>
@@ -66,45 +65,65 @@
 	</section>
 
 
+	<!-- DA QUI LO CAMBI -->
+	<h1>Modifica autore. Non possono essere inseriti due
+		autori con lo stesso nome.</h1>
+	<form action="#"
+		th:action="@{/modificaAutore?(id=${autore.id})}"
+		th:object="${autore}" method="post">
+		<div>
+			<div>
+				<span th:text="#{label.nomeAutore}">Nome: </span> <span><input
+					type="text" th:field="*{nomeAutore}"
+					th:placheholder="${erroreNome}" /></span> <span
+					th:if="${#fields.hasErrors('nomeAutore')}"
+					th:text="#{label.mandatory}">Error</span>
+			</div>
+			<div>
+				<span th:text="#{label.nazionalita}">Nazionalità: </span> <span><input
+					type="text" th:field="*{nazionalita}" /></span> <span
+					th:if="${#fields.hasErrors('nazionalita')}"
+					th:text="#{label.mandatory}">Error</span>
+			</div>
+			<div>
+				<span th:text="#{label.annoNascita}">AnnoNascita: </span> <span><input
+					type="text" th:field="*{annoNascita}" /></span> <span
+					th:if="${#fields.hasErrors('annoNascita')}" th:text="#{label.date}">Error</span>
+			</div>
+			<div>
+				<span th:text="#{label.annoMorte}">AnnoMorte: </span> <span><input
+					type="text" th:field="*{annoMorte}" /></span> <span
+					th:if="${#fields.hasErrors('annoMorte')}" th:text="#{label.date}">Error</span>
+			</div>
+			<div>
+				<span th:text="#{label.urlImmagine}">urlImmagine: </span> <span><input
+					type="text" th:field="*{urlImmagine}" /></span> <span
+					th:if="${#fields.hasErrors('urlImmagine')}"
+					th:text="#{label.mandatory}">Error</span>
 
-	<div class="container">
-		<div class="row col-md-6 col-md-offset-2 custyle">
-			<table class="table table-striped custab">
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>Nome Autore</th>
-						<th >Azione</th>
-					</tr>
-				</thead>
-				<th:foreach th:each="autore: ${autori}">
-					<tr>
-						<td><a th:text="${autore.id}"> </a></td>
-						<td><a th:text="${autore.nomeAutore}"
-							th:href="@{/mostraAutore?(id=${autore.id})}"></a>
-							</td>
+			</div>
 
-						<td class="text-center">
-						<a
-							th:href="@{/modificaAutore(id=${autore.id})}"
-							class="btn btn-danger btn-xs"><span
-								class="glyphicon glyphicon-remove"></span>Modifica</a>
-						<a
-							th:href="@{/cancellaAutore(id=${autore.id})}"
-							class="btn btn-danger btn-xs"><span
-								class="glyphicon glyphicon-remove"></span>Cancella</a>
-								</td>
-					</tr>
-				</th:foreach>
-			</table>
+			<div>
+				<span><button type="submit">Invia</button></span>
+			</div>
 		</div>
-	</div>
+	</form>
+	<!-- SINO A QUI -->
 
 	<footer>
 		<div class="container">
 			<div class="row">
 				<div class="span6 offset3">
-
+					<ul class="social-networks">
+						<li><a href="#"><i
+								class="icon-circled icon-bgdark icon-instagram icon-2x"></i></a></li>
+						<li><a href="#"><i
+								class="icon-circled icon-bgdark icon-twitter icon-2x"></i></a></li>
+						<li><a href="#"><i
+								class="icon-circled icon-bgdark icon-dribbble icon-2x"></i></a></li>
+						<li><a href="#"><i
+								class="icon-circled icon-bgdark icon-pinterest icon-2x"></i></a></li>
+					</ul>
 					<p class="copyright">&copy; 2013 Maxim Inc corporate. All
 						rights reserved.</p>
 				</div>

@@ -127,6 +127,5 @@ public class StanzaController {
 		}
 		stanzaService.add(stanza); 
 		return "/Stanza/ritornaStanza";
-
 	}
 }

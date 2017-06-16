@@ -1,6 +1,7 @@
 package it.uniroma3.galleria.model;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,7 +33,7 @@ public class Opera implements Comparable<Opera> {
     @Min(1)
     private Integer anno;
     
-    @ManyToOne(optional=true)
+    @ManyToOne(cascade=CascadeType.MERGE)
     private Autore autore;
     
     @ManyToOne(optional=true)

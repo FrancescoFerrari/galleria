@@ -155,11 +155,30 @@ public class AutoreController {
 		return "/Autore/listaAutori";
 	}
 
-	@GetMapping("/visualizzaPerNomeAutore")
-	public String showPerTitolo(Model model){
-		List<Autore> autori=(List<Autore>) autoreService.findAll();
-		Collections.sort(autori);
-		model.addAttribute("autori", autori);
-		return "/Autore/listaAutori";
+	@GetMapping("/modificaAutore")
+	public String modificaAutore(Model model,@RequestParam("id")Long id) {
+
+		Autore autore=autoreService.findbyId(id);
+		model.addAttribute("autore",autore);
+		return "Autore/modificaAutore";
+	}
+
+	@PostMapping("/modificaAutore")
+	public String modificaAutore(@Valid @ModelAttribute Autore autore, 
+			BindingResult bindingResult, Model model ){
+		if (bindingResult.hasErrors()) {
+			return "Autore/modificaAutore";
+		}
+		else {
+			model.addAttribute(autore);
+			try{
+				autoreService.add(autore);
+			}catch(Exception e){
+				return"Autore/modificaAutore";
+
+			}
+		}
+		return "Autore/ritornaAutore";
 	}
 }
+
