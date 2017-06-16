@@ -1,4 +1,6 @@
 package it.uniroma3.galleria.controller;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import it.uniroma3.galleria.model.Ruolo;
 import it.uniroma3.galleria.model.Amministratore;
 import it.uniroma3.galleria.service.RuoloService;
@@ -82,5 +86,21 @@ public class WebController {
 		}
 		return "mostraAmministratore";
 	}
+	
+	@GetMapping("/amministratoreList")
+	public String showList(Model model){
+		List<Amministratore> amministratori = (List<Amministratore>) amministratoreService.findAll();
+		model.addAttribute("amministratori", amministratori);
+		return "listaAmministratori";
+	}
+	
+	@GetMapping("stampaAmministratore")
+	public String mostraAmministratore(Amministratore amministratore, Model model,@RequestParam("id")Long id){
+		amministratore=amministratoreService.findbyId(id);
+		model.addAttribute("amministratore",amministratore);
+		return "mostraAmministratore";
+		
+	}
+
 
 }

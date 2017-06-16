@@ -33,7 +33,12 @@ public class Amministratore {
 		this.password = password;
 		this.enabled = true;
 	}
+	
+	
 
+	public Long getId() {
+		return id;
+	}
 	public String getUsername() {
 		return username;
 	}
