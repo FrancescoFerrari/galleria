@@ -129,7 +129,7 @@ public class Autore implements Comparable<Autore> {
 
 	@Override
 	public int compareTo(Autore that) {
-		return this.getNomeAutore().compareTo(that.getNomeAutore());
+		return this.getNomeAutore().toUpperCase().compareTo(that.getNomeAutore().toUpperCase());
 	}
 	
 	

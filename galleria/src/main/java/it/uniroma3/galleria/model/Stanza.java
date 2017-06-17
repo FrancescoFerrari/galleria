@@ -13,7 +13,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-public class Stanza {
+public class Stanza implements Comparable<Stanza> {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
@@ -76,5 +77,12 @@ public class Stanza {
 	public void setOpere(List<Opera> opere) {
 		this.opere = opere;
 	}
+
+	@Override
+	public int compareTo(Stanza that) {
+		return this.getNome().toUpperCase().compareTo(that.getNome().toUpperCase());
+	}
+	
+	
 	
 }

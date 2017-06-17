@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import it.uniroma3.galleria.comparator.ComparatorePerAnno;
+import it.uniroma3.galleria.comparator.ComparatorePerNumeroOpere;
 import it.uniroma3.galleria.model.Opera;
 import it.uniroma3.galleria.model.Stanza;
 import it.uniroma3.galleria.service.OperaService;
@@ -50,6 +51,7 @@ public class StanzaController {
 	@GetMapping("/stanzaList")
 	public String showList(Model model){
 		List<Stanza> stanze = (List<Stanza>) stanzaService.findAll();
+		Collections.sort(stanze);
 		model.addAttribute("stanze", stanze);
 		return "/Stanza/listaStanze";
 	}
@@ -127,5 +129,23 @@ public class StanzaController {
 		}
 		stanzaService.add(stanza); 
 		return "/Stanza/ritornaStanza";
+	}
+	
+	
+	@GetMapping("/visualizzaPerNomeStanza")
+	public String showPerNome(Model model){
+		List<Stanza> stanze=(List<Stanza>) stanzaService.findAll();
+		Collections.sort(stanze);
+		model.addAttribute("stanze", stanze);
+		return "/Stanza/listaStanze";
+	}
+	
+	@GetMapping("/visualizzaPerOpereEsposte")
+	public String showPerOpereEsposte(Model model){
+		List<Stanza> stanze = (List<Stanza>) stanzaService.findAll();
+		ComparatorePerNumeroOpere comparatore = new ComparatorePerNumeroOpere();
+		Collections.sort(stanze, comparatore);
+		model.addAttribute("stanze",stanze);
+		return "/Stanza/listaStanze";
 	}
 }
