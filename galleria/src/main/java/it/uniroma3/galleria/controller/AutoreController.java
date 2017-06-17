@@ -154,6 +154,14 @@ public class AutoreController {
 		Collections.sort(autori,comparatore);
 		return "/Autore/listaAutori";
 	}
+	
+	@GetMapping("/visualizzaPerNomeAutore")
+	public String showPerNomeAutore(Model model){
+		List<Autore> autori = (List<Autore>) autoreService.findAll();
+		Collections.sort(autori);
+		model.addAttribute("autori", autori);		
+		return "/Autore/listaAutori";
+	}
 
 	@GetMapping("/modificaAutore")
 	public String modificaAutore(Model model,@RequestParam("id")Long id) {
