@@ -49,28 +49,20 @@
 			</div>
 		</div>
 	</div>
-	<section class="spacer green">
-		<div class="container">
-			<div class="row">
-				<div class="span12 aligncenter flyUp">
-					<div class="container">
-						<div class="row">
-							<div id="loader">
-								<div class="dot"></div>
-								<div class="dot"></div>
-								<div class="dot"></div>
-								<div class="dot"></div>
-								<div class="dot"></div>
-								<div class="dot"></div>
-								<div class="dot"></div>
-								<div class="dot"></div>
-								<div class="lading"></div>
-							</div>
-						</div>
+
+	<section class="spacermulticolor">
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<div class="multicolor">
+			
+			<div class="container">
+				<div class="row">
+					<div class="span12 aligncenter flyUp">
+				
+						<h2 class="pagetitle">
+							Le nostre <strong>Stanze</strong>
+						</h2>
 					</div>
-					<h2 class="pagetitle">
-						Le nostre <strong>Stanze</strong>
-					</h2>
 				</div>
 			</div>
 		</div>
@@ -79,22 +71,20 @@
 
 	<!-- DA QUI LO CAMBI -->
 	<nav>
-			<section>
+		<section>
 
-				<div id="mySidenav" class="sidenav">
-					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-					<a th:href="@{/visualizzaPerTitoloOpera}">per
-						Titolo</a> <a th:href="@{/visualizzaPerAnnoOpera}">per
-						Anno</a> 
-						 <a th:href="@{/autoreList}">per
-						Autore</a> <a href="#"></a>
+			<div id="mySidenav" class="sidenav">
+				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				<a th:href="@{/visualizzaPerTitoloOpera}">per Titolo</a> <a
+					th:href="@{/visualizzaPerAnnoOpera}">per Anno</a> <a
+					th:href="@{/autoreList}">per Autore</a> <a href="#"></a>
 
-				</div>
-				<span style="font-size: 30px; cursor: pointer" onclick="openNav()">&#9776;
-					Ordina</span>
+			</div>
+			<span style="font-size: 30px; cursor: pointer" onclick="openNav()">&#9776;
+				Ordina</span>
 
 
-				<script>
+			<script>
 				function openNav() {
 					document.getElementById("mySidenav").style.width = "250px";
 
@@ -104,7 +94,7 @@
 					document.getElementById("mySidenav").style.width = "0";
 				}
 			</script>
-			</section>
+		</section>
 	</nav>
 
 	<div class="container">
