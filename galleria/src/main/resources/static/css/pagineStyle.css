@@ -1,3 +1,14 @@
+a.btn{
+	margin-right: 15px;
+	margin-left: 15px;
+}
+
+
+
+div.form-group{
+	margin-top: 15px;
+	margin-bottom:10px;
+}
 #nomeTitolo {
 	color: #fff;
 	text-decoration: none;
@@ -24,6 +35,12 @@ li {
 div#ordinamento {
 	float: left;
 }
+
+
+textarea {
+    resize: none;
+}
+
 
 nav {
 	left: 0;

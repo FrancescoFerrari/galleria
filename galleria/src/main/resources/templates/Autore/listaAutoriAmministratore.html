@@ -43,8 +43,8 @@
 							<li><a title="team" href="index.html#about">About</a></li>
 							<li><a title="services" href="index.html#services">Servizi</a></li>
 							<li><a title="blog" href="index.html#blog">Blog</a></li>
-							<li><a title="contact" href="/modOpera">Area Riservata</a></li>
-							<li><a href="page.html">Page</a></li>
+							<li><a title="contact" href="/opAvanzate">Area Riservata</a></li>
+						
 						</ul>
 					</nav>
 				</div>
@@ -85,10 +85,9 @@
 							</td>
 
 						<td class="text-center">
-						<a
-							th:href="@{/modificaAutore(id=${autore.id})}"
-							class="btn btn-danger btn-xs"><span
-								class="glyphicon glyphicon-remove"></span>Modifica</a>
+						<a class='btn btn-info btn-xs'
+							th:href="@{/modificaAutore(id=${autore.id})}"><span
+								class="glyphicon glyphicon-edit"></span> Modifica</a>
 						<a
 							th:href="@{/cancellaAutore(id=${autore.id})}"
 							class="btn btn-danger btn-xs"><span
