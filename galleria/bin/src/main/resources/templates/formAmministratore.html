@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Nuovo Amministratore</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1> Inserisci un amministratore. La password deve essere di almeno tre caratteri. 
+		 Non possono essere aggiunti due amministratori con lo stesso username.</h1>
+	<form action="#" th:action="@{/mostraAmministratore}"
+		th:object="${amministratore}" method="post">
+		<div>
+				<span th:text="#{label.username}">Username: </span> <span><input
+					type="text" th:field="*{username}"/></span> <span
+					th:if="${#fields.hasErrors('username')}"
+					th:text="#{label.mandatory}">Error</span>
+					<span
+					th:if="usernameNonUnivoco==true"
+					th:text="#{label.nome}">Error</span>
+		</div>
+		<div>
+				<span th:text="#{label.password}">Password: </span> <span><input
+					type="text" th:field="*{password}"/></span> <span
+					th:if="${#fields.hasErrors('password')}"
+					th:text="#{label.errPassword}">Error</span>
+			</div>
+		<span><button type="submit">Invia</button></span>
+
+	</form>
+</body>
+</html>

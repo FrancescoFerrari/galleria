@@ -1,0 +1,151 @@
+#nomeTitolo {
+	color: #fff;
+	text-decoration: none;
+}
+
+.service-box {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	margin-left: 50px;
+	margin-right: 20px;
+	float: left;
+}
+
+li {
+	color: white;
+	float: left;
+}
+
+.conteinerss {
+	margin-right: 30px;
+	text-align: center;
+}
+
+div#ordinamento {
+	float: left;
+}
+
+nav {
+	left: 0;
+	position: relative;
+}
+
+.sidenav {
+	float: left;
+	width: 0;
+	position: relative;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: #333333;
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 60px;
+}
+
+.sidenav a {
+	margin-top: 16px;
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #ffffff;
+	display: block;
+	transition: 0.3s;
+}
+
+.sidenav a:hover, .offcanvas a:focus {
+	color: #00c4c4;
+}
+
+.sidenav .closebtn {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+	.sidenav {
+		padding-top: 15px;
+	}
+	.sidenav a {
+		font-size: 18px;
+	}
+}
+
+.custab{
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+    }
+.custab:hover{
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+    }
+    
+a.btn btn-danger btn-xs{
+		color: red;	
+}
+
+
+.spacermulticolor{
+	background:#1bac91;
+	padding: 100px 0 80px;
+    animation-iteration-count:infinite;
+     animation: colorchange 50s; /* animation-name followed by duration in seconds*/
+         /* you could also use milliseconds (ms) or something like 2.5s */
+      -webkit-animation: colorchange 50s; /* Chrome and Safari */
+    }
+
+    @keyframes colorchange
+    {
+       0%  {background-color: #B0171F;}
+      10%  {background-color: #8B1C62;}
+      20%  {background-color: #8B4789;}
+      30%  {background-color: #8470FF;}
+      40%  {background-color: #B0C4DE;}      
+      50%  {background-color: #98F5FF;}
+      60%  {background-color: #2E8B57;}
+      70%  {background-color: #A2CD5A;}
+      80%  {background-color: #F0E68C;}
+      90%  {background-color: #8B7355;}
+      100% {background-color: #CD3700;}
+    }
+
+    @-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
+    {
+           0%  {background-color: #B0171F;}
+      10%  {background-color: #8B1C62;}
+      20%  {background-color: #8B4789;}
+      30%  {background-color: #8470FF;}
+      40%  {background-color: #B0C4DE;}      
+      50%  {background-color: #98F5FF;}
+      60%  {background-color: #2E8B57;}
+      70%  {background-color: #A2CD5A;}
+      80%  {background-color: #F0E68C;}
+      90%  {background-color: #8B7355;}
+      100% {background-color: #CD3700;}
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

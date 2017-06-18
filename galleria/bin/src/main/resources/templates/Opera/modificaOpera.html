@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Modifica Opera</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<form action="#"
+		th:action="@{/modificaOpera(id=${opera.id})}"
+		th:object="${opera}" method="post">
+		<div>
+			<div>
+				<span th:text="#{label.stanze}">Stanza:</span> <select
+					th:field="*{stanza}">
+					<option th:value="${null}" > Opera non esposta </option>
+					<option th:each="stanza : ${stanze}" th:value="${stanza.id}"
+						th:text="${stanza.nome}"></option>
+				</select>
+			</div>
+			<div>
+				<span th:text="#{label.nome}">Nome: </span> <span><input
+					type="text" th:field="*{nome}" /></span> <span
+					th:if="${#fields.hasErrors('nome')}" th:text="#{label.mandatory}">Error</span>
+			</div>
+			<div>
+				<span th:text="#{label.urlImmagine}">Immagine Url: </span> <span><input
+					type="text" th:field="*{urlImmagine}" /></span> <span
+					th:if="${#fields.hasErrors('urlImmagine')}"
+					th:text="#{label.mandatory}">Error</span>
+			</div>
+			<div>
+				<span th:text="#{label.descrizione}">Descrizione: </span> <span><input
+					type="text" th:field="*{descrizione}" /></span> <span
+					th:if="${#fields.hasErrors('descrizione')}"
+					th:text="#{label.mandatory}">Error</span>
+			</div>
+			<div>
+				<span th:text="#{label.tecnica}">Tecnica: </span> <span><input
+					type="text" th:field="*{tecnica}" /></span> <span
+					th:if="${#fields.hasErrors('tecnica')}"
+					th:text="#{label.mandatory}">Error</span>
+			</div>
+			<div>
+				<span th:text="#{label.anno}">Anno: </span> <span><input
+					type="text" th:field="*{anno}" /></span> <span
+					th:if="${#fields.hasErrors('anno')}" th:text="#{label.number}">Error</span>
+			</div>
+			
+			<div>
+				<span> <span th:text="#{label.autore}">Autore: </span> <input
+					type="text" th:field="${autore.nomeAutore}" name="nomeAutore" />
+				</span>
+			</div>
+			<div>
+				<span><button type="submit">Invia</button></span>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

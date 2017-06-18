@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>AreaRiservataOpere</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<!-- css -->
+<link href="../static/css/bootstrap-responsive.css"
+	th:href="@{/css/bootstrap-responsive.css}" rel="stylesheet" />
+<link href="../static/css/style.css" th:href="@{/css/style.css}"
+	rel="stylesheet" />
+<link href="../static/color/default.css" th:href="@{/color/default.css}"
+	rel="stylesheet" />
+<!--[if lt IE 7]>
+            <link href="css/font-awesome-ie7.css" type="text/css" rel="stylesheet"/>  
+        <![endif]-->
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+<!-- Favicon -->
+<link rel="shortcut icon" href="../static/img/favicon.ico"
+	th:href="@{/img/favicon.ico}" />
+</head>
+<body>
+	<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse"
+						data-target=".nav-collapse"><span class="icon-bar"></span><span
+						class="icon-bar"></span><span class="icon-bar"></span> </a>
+					<h1 class="brand">
+						<a href="index.html">Galleria D'arte</a>
+					</h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="index.html#about">About</a></li>
+							<li><a title="services" href="index.html#services">Servizi</a></li>
+							<li><a title="blog" href="index.html#blog">Blog</a></li>
+							<li><a title="contact" href="/modOpera">Area Riservata</a></li>
+							<li><a href="page.html">Page</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<section class="spacer orange">
+		<div class="container">
+			<div class="row">
+				<div class="span12 aligncenter flyUp">
+					<h2 class="pagetitle">
+						Operazioni <strong>Opere</strong>
+					</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+	<div class="container">
+		<div class="row col-md-6 col-md-offset-2 custyle">
+			<table class="table table-striped custab">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Nome Opera</th>
+						<th>Autore</th>
+						<th>Tecnica</th>
+						<th>Anno</th>
+						<th>Azione</th>
+
+					</tr>
+				</thead>
+				<th:foreach th:each="opera: ${opere}">
+					<tr>
+						<td><a th:text="${opera.id}"> </a></td>
+						<td><a th:text="${opera.nome}"
+							th:href="@{/mostraOpera?(id=${opera.id})}"></a></td>
+						<td><a th:text="${opera.autore.nomeAutore}"> </a></td>
+						<td><a th:text="${opera.tecnica}"> </a></td>
+						<td><a th:text="${opera.anno}"> </a></td>
+
+
+
+						<td class="text-center"><a class='btn btn-info btn-xs'
+							th:href="@{/modificaOpera(id=${opera.id})}"><span
+								class="glyphicon glyphicon-edit"></span> Modifica</a> <a
+							th:href="@{/cancellaOpera(id=${opera.id})}"
+							class="btn btn-danger btn-xs"><span
+								class="glyphicon glyphicon-remove"></span>Cancella</a></td>
+					</tr>
+				</th:foreach>
+			</table>
+		</div>
+	</div>
+
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="span6 offset3">
+
+					<p class="copyright">&copy; 2013 Maxim Inc corporate. All
+						rights reserved.</p>
+				</div>
+			</div>
+		</div>
+		<!-- ./container -->
+	</footer>
+	<a href="#" class="scrollup"><i
+		class="icon-angle-up icon-square icon-bgdark icon-2x"></i></a>
+	<!-- jQuery -->
+	<script src="js/jquery.js"></script>
+	<!-- nav -->
+	<script src="js/jquery.scrollTo.js"></script>
+	<script src="js/jquery.nav.js"></script>
+	<!-- localScroll -->
+	<script src="js/jquery.localscroll-1.2.7-min.js"></script>
+	<!-- bootstrap -->
+	<script src="js/bootstrap.js"></script>
+	<!-- prettyPhoto -->
+	<script src="js/jquery.prettyPhoto.js"></script>
+	<!-- Works scripts -->
+	<script src="js/isotope.js"></script>
+	<!-- flexslider -->
+	<script src="js/jquery.flexslider.js"></script>
+	<!-- inview -->
+	<script src="js/inview.js"></script>
+	<!-- animation -->
+	<script src="js/animate.js"></script>
+	<!-- twitter -->
+	<script src="js/jquery.tweet.js"></script>
+	<!-- contact form -->
+	<script src="js/validate.js"></script>
+	<!-- custom functions -->
+	<script src="js/custom.js"></script>
+</body>
+</html>
+

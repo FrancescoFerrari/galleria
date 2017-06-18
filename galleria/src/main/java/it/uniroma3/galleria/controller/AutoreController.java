@@ -177,6 +177,13 @@ public class AutoreController {
 			return "Autore/modificaAutore";
 		}
 		else {
+			SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+			String dataNascita = df.format(autore.getAnnoNascita());
+			model.addAttribute("dataNascita", dataNascita);
+			if(autore.getAnnoMorte()!=null){
+				String dataMorte = df.format(autore.getAnnoMorte());
+				model.addAttribute("dataMorte", dataMorte);
+			}
 			autore.setNomeAutore(autore.getNomeAutore().toUpperCase());
 			model.addAttribute(autore);
 			try{

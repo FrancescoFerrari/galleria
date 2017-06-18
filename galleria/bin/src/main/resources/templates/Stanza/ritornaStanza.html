@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div>
+    	<p th:text="'Nome: ' + ${stanza.nome}" />
+    </div>
+    <div>
+		<p th:text="'Immagine:'" />
+		<img th:src="@{${stanza.urlImmagine}}" alt="Immagine Stanza"
+			style="height: 500px; width: 500px" />
+	</div>
+
+</body>
+</html>
