@@ -61,8 +61,8 @@
 			</div>
 		</div>
 	</section>
-	<form action="#" th:action="@{/stanza}" th:object="${stanza}"
-		method="post" class="form-horizontal" role="form">
+	<form action="#" th:action="@{/modificaStanza(id=${stanza.id})}"
+		th:object="${stanza}" method="post">
 		<fieldset>
 			<legend> </legend>
 

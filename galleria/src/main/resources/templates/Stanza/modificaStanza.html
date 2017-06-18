@@ -61,7 +61,7 @@
 			</div>
 		</div>
 	</section>
-	<form action="#" th:action="@{/stanza}" th:object="${stanza}"
+	<form action="#" th:action="@{/modificaStanza(id=${stanza.id})}" th:object="${stanza}"
 		method="post" class="form-horizontal" role="form">
 		<fieldset>
 			<legend> </legend>
@@ -97,8 +97,7 @@
 
 			<div class="form-group" style="float: left;">
 				<div class="col-sm-offset-4 col-sm-9">
-					<button type="submit" class="btn btn-success">Inserisci
-						Stanza</button>
+					<button type="submit" class="btn btn-success">Modifica Stanza</button>
 				</div>
 			</div>
 
