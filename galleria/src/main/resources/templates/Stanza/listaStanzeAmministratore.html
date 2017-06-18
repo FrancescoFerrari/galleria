@@ -43,8 +43,7 @@
 							<li><a title="team" href="index.html#about">About</a></li>
 							<li><a title="services" href="index.html#services">Servizi</a></li>
 							<li><a title="blog" href="index.html#blog">Blog</a></li>
-							<li><a title="contact" href="/modOpera">Area Riservata</a></li>
-							<li><a href="page.html">Page</a></li>
+							<li><a title="contact" href="/opAvanzate">Area Riservata</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -83,7 +82,7 @@
 						<td><a th:text="${stanza.id}"> </a></td>
 						<td><a th:text="${stanza.nome}"
 							th:href="@{/mostraStanza?(id=${stanza.id})}"></a></td>
-						<td class="text-center">z<a class='btn btn-info btn-xs'
+						<td class="text-center"><a class='btn btn-info btn-xs'
 							th:href="@{/modificaStanza(id=${stanza.id})}"><span
 								class="glyphicon glyphicon-edit"></span> Modifica</a> <a
 							th:href="@{/cancellaStanza(id=${stanza.id})}"
@@ -94,6 +93,11 @@
 				</th:foreach>
 			</table>
 		</div>
+		<form action="/opAvanzate">
+			<span><input type="submit"
+				class="btn  btn-large btn-block" value="Torna Indietro"
+				style="text-align: center;margin-left:490px; width: 300px;"/>  </span>
+		</form>
 	</div>
 
 	<footer>

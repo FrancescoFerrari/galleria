@@ -64,7 +64,7 @@
 
 	<form action="#" th:action="@{/autore}"
 		th:object="${autore}" method="post" class="form-horizontal"
-		role="form">
+		role="form" style="margin-left: 20px;">
 		<fieldset>
 			<legend>
 				<h1>Inserimento nuovo autore. Non possono essere inseriti due
@@ -137,9 +137,14 @@
 					<button type="submit" class="btn btn-success">Inserisci Autore</button>
 				</div>
 			</div>
-
+             
 		</fieldset>
 	</form>
+	<form action="/opAvanzate">
+			<span><input type="submit"
+				class="btn  btn-large btn-block" value="Annulla" 
+				style=" float: left;text-align: center;margin-left:490px; width: 300px;"/>  </span>
+		</form>
 
 
 	<footer>

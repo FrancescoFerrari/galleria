@@ -3,7 +3,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>AreaRiservataAutore</title>
+<title>AreaRiservataStanza</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="" />
 <meta name="author" content="" />
@@ -61,9 +61,9 @@
 			</div>
 		</div>
 	</section>
-	<form action="#" th:action="@{/modificaStanza(id=${stanza.id})}"
+	<form action="#" th:action="@{/stanza(id=${stanza.id})}"
 		th:object="${stanza}" method="post">
-		<fieldset>
+		<fieldset style="margin-left: 40px">
 			<legend> </legend>
 
 			<div class="form-group">
@@ -90,7 +90,7 @@
 			<div class="form-group"
 				style="float: left; margin-left: 160px; margin-right: 20px">
 				<div class="col-sm-offset-4 col-sm-9">
-					<a href="/opAvanzate" class="btn">Torna Indietro </a>
+					<a href="/opAvanzate" class="btn">Annulla</a>
 
 				</div>
 			</div>
