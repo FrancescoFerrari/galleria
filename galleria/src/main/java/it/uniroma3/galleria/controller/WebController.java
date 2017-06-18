@@ -28,24 +28,6 @@ public class WebController {
 
 
 
-	@RequestMapping(value={"/signUp"})
-	public String signUp(@Valid @ModelAttribute Amministratore user, 
-			BindingResult bindingResult, Model model){
-		if (bindingResult.hasErrors()) {
-			return "signUp";
-		}
-		else {
-			model.addAttribute(user);
-			amministratoreService.add(user); 
-			ruoloService.add(new Ruolo(user.getUsername()));
-		}
-		return "datiUtente";
-	}
-	@RequestMapping(value={"/welcome"})
-	public String welcome(){
-		return "welcome";
-	}
-
 	@RequestMapping(value="/admin")
 	public String admin(){
 		return "admin";
