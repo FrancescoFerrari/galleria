@@ -40,7 +40,7 @@
 							<li><a title="services" href="index.html#services">Servizi</a></li>
 							<li><a title="blog" href="index.html#blog">Blog</a></li>
 							<li><a title="contact" href="/opAvanzate">Area Riservata</a></li>
-					
+
 						</ul>
 					</nav>
 				</div>
@@ -54,7 +54,7 @@
 			<div class="row">
 				<div class="span12 aligncenter flyUp">
 					<h2 class="pagetitle">
-						Inserimento <strong>Opera</strong>
+						Inserisci <strong>Opera</strong>
 					</h2>
 				</div>
 			</div>
@@ -69,7 +69,7 @@
 			<legend></legend>
 
 
-			<div class="form-group" >
+			<div class="form-group" style="margin-bottom: 20px">
 				<label class="col-sm-3 control-label"> <span
 					th:text="#{label.stanze}">Stanze: </span></label>
 				<div class="col-sm-4">
@@ -103,7 +103,7 @@
 			</div>
 			<div class="form-group">
 				<label class="col-sm-3 control-label"><span
-					th:text="#{label.anno}">Anno: </span></label>
+					th:text="#{label.anno}">Anno:  </span></label>
 				<div class="col-sm-4">
 					<input type="text" class="form-control" th:field="*{anno}"
 						placeholder="Anno" /><span th:if="${#fields.hasErrors('anno')}"
@@ -114,7 +114,7 @@
 
 			<div class="form-group">
 				<label class="col-sm-3 control-label"><span
-					th:text="#{label.lunghezza}">Lunghezza quadro: </span> </label>
+					th:text="#{label.lunghezza}">Lunghezza quadro:  </span> </label>
 				<div class="col-sm-4">
 					<input type="text" class="form-control" th:field="*{lunghezza}"
 						placeholder="lunghezza" /><span
@@ -125,7 +125,7 @@
 
 			<div class="form-group">
 				<label class="col-sm-3 control-label"><span
-					th:text="#{label.larghezza}">Larghezza quadro: </span></label>
+					th:text="#{label.larghezza}">Larghezza quadro:  </span></label>
 				<div class="col-sm-4">
 					<input type="text" class="form-control" th:field="*{larghezza}"
 						placeholder="larghezza" /><span
@@ -136,29 +136,29 @@
 
 			<div class="form-group">
 				<label class="col-sm-3 control-label"><span
-					th:text="#{label.tecnica}">Tecnica: </span></label>
+					th:text="#{label.tecnica}">Tecnica:  </span></label>
 				<div class="col-sm-4">
 					<input type="text" class="form-control" th:field="*{tecnica}"
 						placeholder="Tecnica" /><span
 						th:if="${#fields.hasErrors('tecnica')}"
-					th:text="#{label.mandatory}">Error</span>
+						th:text="#{label.mandatory}">Error</span>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-3 control-label"> <span
-					th:text="#{label.urlImmagine}">Immagine Url: </span>
+					th:text="#{label.urlImmagine}">Immagine Url:  </span>
 				</label>
 				<div class="col-sm-4">
 					<input type="text" class="form-control" th:field="*{urlImmagine}" /><span
 						th:if="${#fields.hasErrors('urlImmagine')}"
-						th:text="#{label.mandatory}">Error</span>
+						th:text="#{label.mandatory}">Error </span>
 				</div>
 			</div>
 
 
 			<div class="form-group">
 				<label class="col-sm-3 control-label"> <span
-					th:text="#{label.autore}">Autore: </span>
+					th:text="#{label.autore}">Autore:  </span>
 				</label>
 				<div class="col-sm-4">
 					<input type="text" class="form-control" name="nomeAutore" />
@@ -166,19 +166,27 @@
 			</div>
 
 
-
-
-			<div class="form-group">
+		<div class="form-group" style="float: left; margin-left: 160px; margin-right: 20px">
 				<div class="col-sm-offset-4 col-sm-9">
-					<button type="submit" class="btn btn-success">Inserisci
+				<a href="/opAvanzate" class="btn">Annulla </a>
+
+				</div>
+			</div>
+
+			<div class="form-group" style="float: left;">
+				<div class="col-sm-offset-4 col-sm-9">
+					<button type="submit" class="btn btn-danger">Modifica
 						Opera</button>
 				</div>
 			</div>
+
+	
+			
 		</fieldset>
 	</form>
-	
-	
-<footer>
+
+
+	<footer>
 		<div class="container">
 			<div class="row">
 				<div class="span6 offset3">
