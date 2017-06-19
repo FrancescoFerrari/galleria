@@ -85,6 +85,7 @@ public class OperaController  {
 		}
 		return "/Opera/ritornaOpera";
 	}
+	
 
 	@GetMapping("/modOpera")
 	public String operaList(Model model){
@@ -134,8 +135,25 @@ public class OperaController  {
 		else
 			model.addAttribute("nomeStanza","opera non esposta");
 
-		return "/Opera/ritornaOpera";
+		return "/Opera/ritornaOperaAmministratore";
 	}
+	
+	
+	@GetMapping("/mostraOperaAmministratore")
+	public String mostraOperaAdmin(Model model ,@RequestParam("id") Long id ){
+		Opera opera = operaService.findbyId(id);
+		model.addAttribute("opera", opera);
+		if(opera.getStanza()==null){
+			model.addAttribute("nomeStanza","L'opera non è attualmente esposta.");
+		}
+		else{
+			model.addAttribute("nomeStanza",opera.getStanza().getNome());
+		}
+		return "/Opera/ritornaOperaAmministratore";
+	}
+	
+	
+	
 	@GetMapping("/cancellaOpera")
 	public String cancellaOpera(Model model, @RequestParam("id") Long id){
 		Opera opera = operaService.findbyId(id);
