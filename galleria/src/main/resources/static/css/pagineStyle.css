@@ -106,196 +106,45 @@ a.btn btn-danger btn-xs {
 	color: red;
 }
 
-.spacermulticolor {
-	background: #1bac91;
-	padding: 100px 0 80px;
-	animation-iteration-count: infinite;
-	animation: colorchange 50s;
-	/* animation-name followed by duration in seconds*/
-	/* you could also use milliseconds (ms) or something like 2.5s */
-	-webkit-animation: colorchange 50s; /* Chrome and Safari */
-}
-
-@
-keyframes colorchange { 0% {
-	
-
-
-: #B0171F;
-}
-
-10%
-{
-background-color
-:
+.spacermulticolor{
+ 	background:#1bac91;
+ 	padding: 100px 0 80px;
+     animation-iteration-count:infinite;
+      animation: colorchange 50s; /* animation-name followed by duration in seconds*/
+          /* you could also use milliseconds (ms) or something like 2.5s */
+       -webkit-animation: colorchange 50s; /* Chrome and Safari */
+     }
  
-#8B1C62
-;
-}
-20%
-{
-background-color
-:
- 
-#8B4789
-;
-}
-30%
-{
-background-color
-:
- 
-#8470FF
-;
-}
-40%
-{
-background-color
-:
- 
-#B0C4DE
-;
-}
-50%
-{
-background-color
-:
- 
-#98F5FF
-;
-}
-60%
-{
-background-color
-:
- 
-#2E8B57
-;
-}
-70%
-{
-background-color
-:
- 
-#A2CD5A
-;
-}
-80%
-{
-background-color
-:
- 
-#F0E68C
-;
-}
-90%
-{
-background-color
-:
- 
-#8B7355
-;
-}
-100%
-{
-background-color
-:
- 
-#CD3700
-;
-}
-}
-@
--webkit-keyframes colorchange
-	/* Safari and Chrome - necessary duplicate */ { 0% {
-	background-color: #B0171F;
-}
-
-10%
-{
-background-color
-:
- 
-#8B1C62
-;
-}
-20%
-{
-background-color
-:
- 
-#8B4789
-;
-}
-30%
-{
-background-color
-:
- 
-#8470FF
-;
-}
-40%
-{
-background-color
-:
- 
-#B0C4DE
-;
-}
-50%
-{
-background-color
-:
- 
-#98F5FF
-;
-}
-60%
-{
-background-color
-:
- 
-#2E8B57
-;
-}
-70%
-{
-background-color
-:
- 
-#A2CD5A
-;
-}
-80%
-{
-background-color
-:
- 
-#F0E68C
-;
-}
-90%
-{
-background-color
-:
- 
-#8B7355
-;
-}
-100%
-{
-background-color
-:
- 
-#CD3700
-;
-}
-}
-}
-footer {
-	position: relative;
-}
+     @keyframes colorchange
+     {
+        0%  {background-color: #B0171F;}
+       10%  {background-color: #8B1C62;}
+       20%  {background-color: #8B4789;}
+       30%  {background-color: #8470FF;}
+       40%  {background-color: #B0C4DE;}      
+       50%  {background-color: #98F5FF;}
+       60%  {background-color: #2E8B57;}
+       70%  {background-color: #A2CD5A;}
+       80%  {background-color: #F0E68C;}
+       90%  {background-color: #8B7355;}
+       100% {background-color: #CD3700;}
+     }
+ 		  
+     @-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
+    {
+            0%  {background-color: #B0171F;}
+       10%  {background-color: #8B1C62;}
+       20%  {background-color: #8B4789;}
+       30%  {background-color: #8470FF;}
+       40%  {background-color: #B0C4DE;}      
+       50%  {background-color: #98F5FF;}
+       60%  {background-color: #2E8B57;}
+       70%  {background-color: #A2CD5A;}
+       80%  {background-color: #F0E68C;}
+       90%  {background-color: #8B7355;}
+       100% {background-color: #CD3700;}
+     }
+ }
 
 
 
