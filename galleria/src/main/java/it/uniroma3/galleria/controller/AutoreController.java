@@ -167,7 +167,7 @@ public class AutoreController {
 	public String modificaAutore(Model model,@RequestParam("id")Long id) {
 		Autore autore=autoreService.findbyId(id);
 		model.addAttribute("autore",autore);
-		return "Autore/modificaAutore";
+		return "/Autore/modificaAutore";
 	}
 
 	@PostMapping("/modificaAutore")
@@ -193,7 +193,15 @@ public class AutoreController {
 
 			}
 		}
-		return "Autore/ritornaAutore";
+		return "/Autore/ritornaAutoreAmministratore";
 	}
+	
+	@GetMapping("/mostraAutoreAmministratore")
+	public String showAutoreAmministratore(@RequestParam("id")long id, Model model){
+		Autore autore = autoreService.findbyId(id);
+		model.addAttribute("autore", autore);
+		return "/Autore/ritornaAutoreAmministratore";
+	}
+	
 }
 

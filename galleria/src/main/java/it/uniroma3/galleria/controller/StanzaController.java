@@ -131,6 +131,15 @@ public class StanzaController {
 		return "/Stanza/ritornaStanza";
 	}
 	
+	@GetMapping("/mostraStanzaAmministratore")
+	public String showStanzaAmministratore(@RequestParam("id")long id, Model model){
+		Stanza stanza = stanzaService.findbyId(id);
+		List<Opera> opere= stanza.getOpere();
+		model.addAttribute("opere", opere);
+		model.addAttribute("stanza", stanza);
+		return "/Stanza/ritornaStanza";
+	}
+	
 	
 	@GetMapping("/visualizzaPerNomeStanza")
 	public String showPerNome(Model model){
