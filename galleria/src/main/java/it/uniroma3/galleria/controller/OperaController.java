@@ -34,23 +34,25 @@ public class OperaController  {
 	@GetMapping("/opera")
 	public String showForm(Model model, Opera opera) {
 		List<Stanza> stanze = (List<Stanza>) stanzaService.findAll();
+		List<Autore> autori = (List<Autore>) autoreService.findAll();
+		model.addAttribute("autori", autori);
 		model.addAttribute("stanze", stanze);
 		return "/Opera/formOpera";
 	}
 
 	@PostMapping("/opera")
 	public String checkOperaInfo(@Valid @ModelAttribute Opera opera, 
-			BindingResult bindingResult, Model model , @RequestParam("nomeAutore") String nomeAutore) {
+			BindingResult bindingResult, Model model) {
 
 		List<Stanza> stanze = (List<Stanza>) stanzaService.findAll();
+		List<Autore> autori = (List<Autore>) autoreService.findAll();
 		model.addAttribute("stanze", stanze);
-
-		if (bindingResult.hasErrors() || autoreService.findbyName(nomeAutore.toUpperCase())==null ) {
+		model.addAttribute("autori",autori);
+		if (bindingResult.hasErrors()) {
 			return "/Opera/formOpera";
 		}
 		else {
-			Autore autore = autoreService.findbyName(nomeAutore.toUpperCase());
-			opera.setAutore(autore);
+			Autore autore = opera.getAutore();
 			autore.getOpereAutore().add(opera);
 			model.addAttribute(autore);
 			model.addAttribute(opera);
@@ -94,7 +96,9 @@ public class OperaController  {
 	@GetMapping("/modificaOpera")
 	public String modificaOpera(Model model, @RequestParam("id") Long id){
 		List<Stanza> stanze = (List<Stanza>) stanzaService.findAll();
+		List<Autore> autori = (List<Autore>) autoreService.findAll();
 		model.addAttribute("stanze", stanze);
+		model.addAttribute("autori",autori);
 		Opera opera = operaService.findbyId(id);
 		Autore autore =opera.getAutore();
 		model.addAttribute("autore",autore);
@@ -104,17 +108,16 @@ public class OperaController  {
 
 	@PostMapping("/modificaOpera")
 	public String modificaInfo(@Valid @ModelAttribute Opera opera, 
-			BindingResult bindingResult, Model model, @RequestParam("nomeAutore") String nomeAutore) {
-
+			BindingResult bindingResult, Model model) {
+		List<Autore> autori =(List<Autore>) autoreService.findAll();
 		List<Stanza> stanze =(List<Stanza>) stanzaService.findAll();
 		model.addAttribute("stanze", stanze);
-
-		if (bindingResult.hasErrors()|| autoreService.findbyName(nomeAutore.toUpperCase())==null) {
+		model.addAttribute("autori", autori);
+		if (bindingResult.hasErrors()) {
 			return "/Opera/formOpera";
 		}
 		else {
-			Autore autore= autoreService.findbyName(nomeAutore.toUpperCase());
-			opera.setAutore(autore);
+			Autore autore= opera.getAutore();
 			autore.getOpereAutore().add(opera);
 			if(opera.getStanza()!=null)
 				opera.getStanza().getOpere().add(opera);
