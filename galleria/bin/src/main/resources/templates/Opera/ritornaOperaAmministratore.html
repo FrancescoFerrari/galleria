@@ -54,7 +54,7 @@
             <div class="row">
                 <div class="span12 aligncenter flyUp">
                     <h2 class="pagetitle">
-                        <strong><a id="nomeTitolo" th:text="${stanza.nome}"></a> </strong>
+                        <strong><a id="nomeTitolo" th:text="${opera.nome}"></a> </strong>
                     </h2>
                 </div>
             </div>
@@ -68,13 +68,18 @@
             <div class="row" id="listaAttributi">
                 <div class="outer" style="float: left;">
                     <div class="image" style="float: left;">
-                        <img th:src="@{${stanza.urlImmagine}}" alt="Immagine Stanza" />
+                        <img th:src="@{${opera.urlImmagine}}" alt="Immagine Opera" />
                     </div>
                 </div>
 
                 <div style="float: left;">
-                    <p th:text="'Nome: ' + ${stanza.nome}" />
-                   
+                    <p th:text="'Nome: ' + ${opera.nome}" />
+                    <p th:text="'Tecnica: ' + ${opera.tecnica}" />
+                    <p th:text="'Anno: ' + ${opera.anno}" />
+                    <p th:text="'Nome autore: ' + ${opera.autore.nomeAutore}" />
+                    <p th:text="'Stanza: ' + ${nomeStanza}" />
+                    <p th:text="'Larghezza quadro: ' + ${opera.larghezza}" />
+                    <p th:text="'Lunghezza quadro: ' + ${opera.lunghezza}" />
                 </div>
 
                 <!-- <p th:if="${autore.annoMorte}"
@@ -84,7 +89,9 @@
 
 
             <div class="row" id="listaAttributi">
-               
+                <p th:text="'Descrizione: ' + ${opera.descrizione}"
+                    style="margin-left: 20px" />
+                    
                 <div class=" highlight" style="margin-top: 40px;  text-align:right;">
                     
                     

@@ -1,18 +1,128 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Opera</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<!-- css -->
+
+<link href="../static/css/bootstrap-responsive.css"
+	th:href="@{/css/bootstrap-responsive.css}" rel="stylesheet" />
+<link href="../static/css/pagineStyle.css"
+	th:href="@{/css/pagineStyle.css}" rel="stylesheet" />
+<link href="../static/css/style.css" th:href="@{/css/style.css}"
+	rel="stylesheet" />
+<link href="../static/color/default.css" th:href="@{/color/default.css}"
+	rel="stylesheet" />
+<link href="../static/css/ritorno.css" th:href="@{/css/ritorno.css}"
+	rel="stylesheet" />
+<!-- Favicon -->
+<link rel="shortcut icon" href="../static/img/favicon.ico"
+	th:href="@{/img/favicon.ico}" />
+
+</head>
 <body>
-	<h1> <b>  Attenzione: SEI SICURO DI VOLER CANCELLARE QUESTA STANZA?  </b></h1>
-	<div>
-    	<p th:text="'Nome: ' + ${stanza.nome}" />
-    </div>
-    <div>
-		<p th:text="'Immagine:'" />
-		<img th:src="@{${stanza.urlImmagine}}" alt="Immagine Stanza" style="height: 500px; width: 500px" />
+
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse"
+						data-target=".nav-collapse"><span class="icon-bar"></span><span
+						class="icon-bar"></span><span class="icon-bar"></span> </a>
+					<h1 class="brand">
+						<a href="index.html">Galleria D'arte</a>
+					</h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="index.html#about">About</a></li>
+							<li><a title="services" href="index.html#services">Visita</a></li>
+							<li><a title="blog" href="index.html#blog">Blog</a></li>
+							<li><a title="contact" href="/opAvanzate">Area Riservata</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
 	</div>
-    <form action="#" th:action="@{/confermaCancellazioneStanza(id=${stanza.id})}"
-		th:object="${stanza}" method="post">
-		<span><button type="submit">Cancella</button></span>
-	</form>
-	<a th:href="@{/modStanza}">Annulla</a>
+	<section class="spacer green">
+		<div class="container">
+			<div class="row">
+				<div class="span12 aligncenter flyUp">
+					<h2 class="pagetitle">
+						<strong><a id="nomeTitolo" th:text="${stanza.nome}"></a>
+						</strong>
+					</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="main-container">
+		<div class=" highlight" style="margin-left: 200px;">
+			<h3>
+				<b> Attenzione: SEI SICURO DI VOLER CANCELLARE QUESTA STANZA? </b>
+			</h3>
+
+			<div class="row" id="listaAttributi">
+				<div class="outer" style="float: left;">
+					<div class="image" style="float: left;">
+
+						<img th:src="@{${stanza.urlImmagine}}" alt="Immagine Stanza" />
+					</div>
+				</div>
+
+				<div style="float: left;">
+					<p th:text="'Nome: ' + ${stanza.nome}" />
+
+				</div>
+			</div>
+
+
+			<div class="row" id="listaAttributi">
+				<div class=" highlight" style="margin-top: 40px; text-align: right;">
+
+					<a th:href="@{/modAutore}" class="btn btn-primary"
+						style="margin-left: 100px; float: left;">Annulla</a>
+
+					<form action="#"
+						th:action="@{/confermaCancellazioneStanza(id=${stanza.id})}"
+						th:object="${stanza}" method="post">
+						<span><button type="submit" class="btn btn-warning">Cancella</button></span>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<a href="#" class="scrollup"><i
+		class="icon-angle-up icon-square icon-bgdark icon-2x"></i></a>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.scrollTo.js"></script>
+	<script src="js/jquery.nav.js"></script>
+	<script src="js/jquery.localscroll-1.2.7-min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/jquery.prettyPhoto.js"></script>
+	<script src="js/isotope.js"></script>
+	<script src="js/jquery.flexslider.js"></script>
+	<script src="js/inview.js"></script>
+	<script src="js/animate.js"></script>
+	<script src="js/validate.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="contactform/contactform.js"></script>
+
 </body>
+<footer style="position: relative;">
+	<div class="container">
+		<div class="row">
+			<div class="span6 offset3">
+				<p class="copyright">&copy; Maxim Theme. All rights reserved.</p>
+				<div class="credits"></div>
+			</div>
+		</div>
+	</div>
+	<!-- ./container -->
+</footer>
 </html>

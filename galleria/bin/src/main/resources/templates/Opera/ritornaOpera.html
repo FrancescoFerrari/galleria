@@ -1,34 +1,134 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Opera</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<!-- css -->
+
+<link href="../static/css/bootstrap-responsive.css"
+	th:href="@{/css/bootstrap-responsive.css}" rel="stylesheet" />
+<link href="../static/css/pagineStyle.css"
+	th:href="@{/css/pagineStyle.css}" rel="stylesheet" />
+<link href="../static/css/style.css" th:href="@{/css/style.css}"
+	rel="stylesheet" />
+<link href="../static/color/default.css" th:href="@{/color/default.css}"
+	rel="stylesheet" />
+<link href="../static/css/ritorno.css" th:href="@{/css/ritorno.css}"
+	rel="stylesheet" />
+<!-- Favicon -->
+<link rel="shortcut icon" href="../static/img/favicon.ico"
+	th:href="@{/img/favicon.ico}" />
+
+</head>
 <body>
-	<div>
-		<p th:text="'Nome: ' + ${opera.nome}" />
+
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse"
+						data-target=".nav-collapse"><span class="icon-bar"></span><span
+						class="icon-bar"></span><span class="icon-bar"></span> </a>
+					<h1 class="brand">
+						<a href="index.html">Galleria D'arte</a>
+					</h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="index.html#about">About</a></li>
+							<li><a title="services" href="index.html#services">Visita</a></li>
+							<li><a title="blog" href="index.html#blog">Blog</a></li>
+							<li><a title="contact" href="/opAvanzate">Area Riservata</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div>
-		<p th:text="'Immagine:'" />
-		<img th:src="@{${opera.urlImmagine}}" alt="Immagine Opera"
-			style="height: 500px; width: 500px" />
+	<section class="spacermulticolor">
+		<div class="container">
+			<div class="row">
+				<div class="span12 aligncenter flyUp">
+					<h2 class="pagetitle">
+						<strong><a id="nomeTitolo" th:text="${opera.nome}"></a> </strong>
+					</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="main-container">
+		<div class=" highlight" style="margin-left: 200px;">
+			<h3>
+			</h3>
+			<div class="row" id="listaAttributi">
+				<div class="outer" style="float: left;">
+					<div class="image" style="float: left;">
+						<img th:src="@{${opera.urlImmagine}}" alt="Immagine Opera" />
+					</div>
+				</div>
+
+				<div style="float: left;">
+					<p th:text="'Nome: ' + ${opera.nome}" />
+					<p th:text="'Tecnica: ' + ${opera.tecnica}" />
+					<p th:text="'Anno: ' + ${opera.anno}" />
+					<p th:text="'Nome autore: ' + ${opera.autore.nomeAutore}" />
+					<p th:text="'Stanza: ' + ${nomeStanza}" />
+					<p th:text="'Larghezza quadro: ' + ${opera.larghezza}" />
+					<p th:text="'Lunghezza quadro: ' + ${opera.lunghezza}" />
+				</div>
+
+				<!-- <p th:if="${autore.annoMorte}"
+					th:text="#{label.annoMorte} +' '+ ${dataMorte}" />-->
+
+			</div>
+
+
+			<div class="row" id="listaAttributi">
+				<p th:text="'Descrizione: ' + ${opera.descrizione}"
+					style="margin-left: 20px" />
+					
+				<div class=" highlight" style="margin-top: 40px;  text-align:right;">
+					
+					
+					<a href="/" class="btn btn-warning" style="margin-left: 100px" >Torna alla Homepage</a>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div>
-		<p th:text="'Descrizione: ' + ${opera.descrizione}" />
-	</div>
-	<div>
-		<p th:text="'Tecnica: ' + ${opera.tecnica}" />
-	</div>
-	<div>
-		<p th:text="'Anno: ' + ${opera.anno}" />
-	</div>
-	<div>
-		<p th:text="'Nome autore: ' + ${opera.autore.nomeAutore}" />
-	</div>
-	<div>
-		<p th:text="'Stanza: ' + ${nomeStanza}" />
-	</div>
-	<div>
-		<p th:text="'Larghezza quadro: ' + ${opera.larghezza}" />
-	</div>
-	<div>
-		<p th:text="'Lunghezza quadro: ' + ${opera.lunghezza}" />
-	</div>
+
+
+
+
+	<a href="#" class="scrollup"><i
+		class="icon-angle-up icon-square icon-bgdark icon-2x"></i></a>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.scrollTo.js"></script>
+	<script src="js/jquery.nav.js"></script>
+	<script src="js/jquery.localscroll-1.2.7-min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/jquery.prettyPhoto.js"></script>
+	<script src="js/isotope.js"></script>
+	<script src="js/jquery.flexslider.js"></script>
+	<script src="js/inview.js"></script>
+	<script src="js/animate.js"></script>
+	<script src="js/validate.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="contactform/contactform.js"></script>
+
 </body>
+<footer style="position: relative;">
+	<div class="container">
+		<div class="row">
+			<div class="span6 offset3">
+				<p class="copyright">&copy; Maxim Theme. All rights reserved.</p>
+				<div class="credits"></div>
+			</div>
+		</div>
+	</div>
+	<!-- ./container -->
+</footer>
 </html>

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Le Nostre Stanze</title>
+<title>OpereAutore</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="" />
 <meta name="author" content="" />
@@ -16,7 +16,8 @@
 	rel="stylesheet" />
 <link href="../static/color/default.css" th:href="@{/color/default.css}"
 	rel="stylesheet" />
-
+<link href="../static/css/ritorno.css" th:href="@{/css/ritorno.css}"
+	rel="stylesheet" />
 <!-- Favicon -->
 <link rel="shortcut icon" href="../static/img/favicon.ico"
 	th:href="@{/img/favicon.ico}" />
@@ -41,8 +42,7 @@
 							<li><a title="team" href="index.html#about">About</a></li>
 							<li><a title="services" href="index.html#services">Visita</a></li>
 							<li><a title="blog" href="index.html#blog">Blog</a></li>
-							<li><a title="contact" href="/modOpera">Area Riservata</a></li>
-							<li><a href="page.html">Page</a></li>
+							<li><a title="contact" href="/opAvanzate">Area Riservata</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -52,41 +52,47 @@
 	<section class="spacermulticolor">
 		<div class="container">
 			<div class="row">
-				<div class="span12 aligncenter flyUp"><div class="container">
-						<div class="row">
-						</div>
-					</div>
+				<div class="span12 aligncenter flyUp">
 					<h2 class="pagetitle">
-						Autore <strong><a id="nomeTitolo" th:text="${autore.nomeAutore}"></a></strong>
+						<strong><a id="nomeTitolo" th:text="${autore.nomeAutore}"></a>
+						</strong>
 					</h2>
 				</div>
 			</div>
 		</div>
 	</section>
 
+	<div class="main-container">
+		<div class=" highlight" style="margin-left: 200px;">
+			<h3>Informazioni:</h3>
 
-	<!-- DA QUI LO CAMBI -->
+			<div class="row" id="listaAttributi">
+				<div class="outer" style="float: left;">
+					<div class="image" style="float: left;">
+						<img th:src="${autore.urlImmagine}" />
+					</div>
+				</div>
+
+				<div style="float: left;">
+					<p th:text="'Nome: ' + ${autore.nomeAutore}" />
+					<p th:text="'Nazionalita: ' + ${autore.nazionalita}" />
+					<p th:text="'Anno di nascita: ' + ${dataNascita}" />
+					<p th:if="${autore.annoMorte}"
+						th:text="#{label.annoMorte} +' '+ ${dataMorte}" />
+				</div>
+			</div>
 
 
-	<div class="conteinerss">
-		<h1>Informazioni Sull'Autore:</h1>
-		<div>
-			<p th:text="'Nome: ' + ${autore.nomeAutore}" />
+			<div class="row" id="listaAttributi">
+				<div class=" highlight" style="margin-top: 40px; text-align: right;">
+
+					<a href="/" class="btn btn-warning" style="margin-left: 100px">Torna
+						alla Homepage</a>
+				</div>
+			</div>
 		</div>
-		<div>
-			<p th:text="'Immagine:'" />
-			<img th:src="@{${autore.urlImmagine}}" alt="Immagine Autore" />
-		</div>
-		<div>
-			<p th:text="'Nazionalita: ' + ${autore.nazionalita}" />
-		</div>
-		<div>
-			<p th:text="'Anno di nascita: ' + ${dataNascita}" />
-		</div>
-		<div>
-			<p th:if="${autore.annoMorte}"
-				th:text="#{label.annoMorte} +' '+ ${dataMorte}"></p>
-		</div>
+	</div>
+	<div>
 		<h2>Opere dell'Autore:</h2>
 	</div>
 
@@ -133,6 +139,12 @@
 				</th:foreach>
 			</ul>
 		</div>
+		<form action="/autoreList">
+			<span><input type="submit" class="btn  btn-large btn-block"
+				value="Torna agli Autori"
+				style="text-align: center; margin-left: 490px; width: 300px;" /> </span>
+		</form>
+
 	</div>
 
 	<!-- SINO A QUI -->

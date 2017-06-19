@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Le Nostre Stanze</title>
+<title>Autore</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="" />
 <meta name="author" content="" />
@@ -16,7 +16,8 @@
 	rel="stylesheet" />
 <link href="../static/color/default.css" th:href="@{/color/default.css}"
 	rel="stylesheet" />
-
+<link href="../static/css/ritorno.css" th:href="@{/css/ritorno.css}"
+	rel="stylesheet" />
 <!-- Favicon -->
 <link rel="shortcut icon" href="../static/img/favicon.ico"
 	th:href="@{/img/favicon.ico}" />
@@ -41,41 +42,89 @@
 							<li><a title="team" href="index.html#about">About</a></li>
 							<li><a title="services" href="index.html#services">Visita</a></li>
 							<li><a title="blog" href="index.html#blog">Blog</a></li>
-							<li><a title="contact" href="/modOpera">Area Riservata</a></li>
-							<li><a href="page.html">Page</a></li>
+							<li><a title="contact" href="/opAvanzate">Area Riservata</a></li>
 						</ul>
 					</nav>
 				</div>
 			</div>
 		</div>
 	</div>
-	<section class="spacer green">
+	<section class="spacermulticolor">
 		<div class="container">
 			<div class="row">
 				<div class="span12 aligncenter flyUp">
 					<h2 class="pagetitle">
-						Le nostre <strong>Stanze</strong>
+						<strong><a id="nomeTitolo" th:text="${autore.nomeAutore}"></a>
+						</strong>
 					</h2>
 				</div>
 			</div>
 		</div>
 	</section>
+	<div class="main-container">
+		<div class=" highlight" style="margin-left: 200px;">
+			<h3>Informazioni:</h3>
 
-	<div>
-    	<p th:text="'Nome: ' + ${autore.nomeAutore}" />
-    </div>
-    <div>
-		<p th:text="'Immagine:'" />
-		<img th:src="@{${autore.urlImmagine}}" alt="Immagine Autore" style="height: 500px; width: 500px" />
+			<div class="row" id="listaAttributi">
+				<div class="outer" style="float: left;">
+					<div class="image" style="float: left;">
+						<img th:src="${autore.urlImmagine}" />
+					</div>
+				</div>
+
+				<div style="float: left;">
+					<p th:text="'Nome: ' + ${autore.nomeAutore}" />
+					<p th:text="'Nazionalita: ' + ${autore.nazionalita}" />
+					<p th:text="'Anno di nascita: ' + ${dataNascita}" />
+					<p th:if="${autore.annoMorte}"
+						th:text="#{label.annoMorte} +' '+ ${dataMorte}" />
+				</div>
+			</div>
+
+
+			<div class="row" id="listaAttributi">
+				<div class=" highlight" style="margin-top: 40px; text-align: right;">
+
+					<a href="/" class="btn btn-warning" style="margin-left: 100px">Torna
+						alla Homepage</a>
+				</div>
+			</div>
+		</div>
 	</div>
-    <div>
-    	<p th:text="'Nazionalita: ' + ${autore.nazionalita}" />
-    </div>
-	<div>
-    	<p th:text="'Anno di nascita: ' + ${dataNascita}" />	
-    </div>
-    <div>
-    	<p th:if="${autore.annoMorte}" th:text="#{label.annoMorte} +' '+ ${dataMorte}"></p>
-    </div>
+
+
+
+
+	<a href="#" class="scrollup"><i
+		class="icon-angle-up icon-square icon-bgdark icon-2x"></i></a>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.scrollTo.js"></script>
+	<script src="js/jquery.nav.js"></script>
+	<script src="js/jquery.localscroll-1.2.7-min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/jquery.prettyPhoto.js"></script>
+	<script src="js/isotope.js"></script>
+	<script src="js/jquery.flexslider.js"></script>
+	<script src="js/inview.js"></script>
+	<script src="js/animate.js"></script>
+	<script src="js/validate.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="contactform/contactform.js"></script>
+
 </body>
+
+<footer style="position: relative;">
+	<div class="container">
+		<div class="row">
+			<div class="span6 offset3">
+				<p class="copyright">&copy; Maxim Theme. All rights reserved.</p>
+				<div class="credits"></div>
+			</div>
+		</div>
+	</div>
+	<!-- ./container -->
+</footer>
 </html>
+
+
+

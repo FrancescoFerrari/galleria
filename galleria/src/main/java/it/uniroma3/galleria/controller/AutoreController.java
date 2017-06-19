@@ -69,7 +69,7 @@ public class AutoreController {
 				autoreService.add(autore); 
 			}
 		}
-		return "/Autore/ritornaAutore";
+		return "/Autore/ritornaAutoreAmministratore";
 	}
 
 	@GetMapping("/autoreList")

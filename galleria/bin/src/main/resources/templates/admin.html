@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Le Nostre Stanze</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content=""/>
-<meta name="author" content=""/>
+<title>Logout</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+<meta name="author" content="" />
 <!-- css -->
-<link href="../static/css/bootstrap-responsive.css" th:href="@{/css/bootstrap-responsive.css}" rel="stylesheet"/>
-<link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
-<link href="../static/color/default.css" th:href="@{/color/default.css}" rel="stylesheet"/>
+<link href="../static/css/bootstrap-responsive.css"
+	th:href="@{/css/bootstrap-responsive.css}" rel="stylesheet" />
+<link href="../static/css/style.css" th:href="@{/css/style.css}"
+	rel="stylesheet" />
+<link href="../static/color/default.css" th:href="@{/color/default.css}"
+	rel="stylesheet" />
 <!--[if lt IE 7]>
             <link href="css/font-awesome-ie7.css" type="text/css" rel="stylesheet"/>  
         <![endif]-->
@@ -18,52 +23,111 @@
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 <!-- Favicon -->
-<link rel="shortcut icon" href="../static/img/favicon.ico" th:href="@{/img/favicon.ico}"/>
+<link rel="shortcut icon" href="../static/img/favicon.ico"
+	th:href="@{/img/favicon.ico}" />
 </head>
 <body>
-<!-- navbar -->
-<div class="navbar-wrapper">
-	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<!-- Responsive navbar -->
-				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-				</a>
-				<h1 class="brand"><a href="index.html">Galleria D'arte</a></h1>
-				<!-- navigation -->
-				<nav class="pull-right nav-collapse collapse">
-				<ul id="menu-main" class="nav">
-					<li><a title="team" href="index.html#about">About</a></li>
-					<li><a title="services" href="index.html#services">Servizi</a></li>
-					<li><a title="blog" href="index.html#blog">Blog</a></li>
-					<li><a title="contact" href="/modOpera">Area Riservata</a></li>
-					<li><a href="page.html">Page</a></li>
-				</ul>
-				</nav>
+	<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse"
+						data-target=".nav-collapse"><span class="icon-bar"></span><span
+						class="icon-bar"></span><span class="icon-bar"></span> </a>
+					<h1 class="brand">
+						<a href="index.html">Galleria D'arte</a>
+					</h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="index.html#about">About</a></li>
+							<li><a title="services" href="index.html#services">Servizi</a></li>
+							<li><a title="blog" href="index.html#blog">Blog</a></li>
+							<li><a title="contact" href="/opAvanzate">Area Riservata</a></li>
+
+						</ul>
+					</nav>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
 
-<section class="spacer green">
-<div class="container">
-	<div class="row">
-		<div class="span12 aligncenter flyUp">
-			<h2 class="pagetitle">Le nostre <strong>Stanze</strong></h2>
+	<section class="spacer orange">
+		<div class="container">
+			<div class="row">
+				<div class="span12 aligncenter flyUp">
+					<h2 class="pagetitle">
+						<strong>Logout</strong>
+					</h2>
+				</div>
+			</div>
 		</div>
-	</div>
-</div>
-</section>
-     <h1 style="color:blue"> Log-out!</h1>
-     
-     <a style="color:blue" th:href="@{/}">Go to Home Page</a>
-     
-     <br/>
-     
-     <form th:action="@{/logout}" method="post">
-         <input type="submit" value="Sign Out"/>
-     </form>
-     
- </body>
+	</section>
+	<section>
+		<legend>
+			<h1 style=" margin-top:50px;margin-bottom:50px; text-align: center;">Vuoi davvero effettuare il log-out? </h1>
+		</legend>
+
+		<div class="form-group"
+			style="float: left; margin-left: 510px; margin-right: 20px; margin-bottom: 200px">
+			<div class="col-sm-offset-4 col-sm-9">
+				<a th:href="@{/}" class="btn">Torna alla Home </a>
+
+			</div>
+		</div>
+
+
+
+		<form th:action="@{/logout}" method="post">
+			<input class="btn btn-primary btn-large btn-block" type="submit"
+				value="effettua il Log-Out" style="text-align: center;margin-left:760px; width: 300px;"
+				/>
+		</form>
+	</section>
+
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="span6 offset3">
+
+					<p class="copyright">&copy; 2013 Maxim Inc corporate. All
+						rights reserved.</p>
+				</div>
+			</div>
+			</div>
+
+
+			<!-- ./container -->
+			</footer>
+			<a href="#" class="scrollup"><i
+				class="icon-angle-up icon-square icon-bgdark icon-2x"></i></a>
+			<!-- jQuery -->
+			<script src="js/jquery.js"></script>
+			<!-- nav -->
+			<script src="js/jquery.scrollTo.js"></script>
+			<script src="js/jquery.nav.js"></script>
+			<!-- localScroll -->
+			<script src="js/jquery.localscroll-1.2.7-min.js"></script>
+			<!-- bootstrap -->
+			<script src="js/bootstrap.js"></script>
+			<!-- prettyPhoto -->
+			<script src="js/jquery.prettyPhoto.js"></script>
+			<!-- Works scripts -->
+			<script src="js/isotope.js"></script>
+			<!-- flexslider -->
+			<script src="js/jquery.flexslider.js"></script>
+			<!-- inview -->
+			<script src="js/inview.js"></script>
+			<!-- animation -->
+			<script src="js/animate.js"></script>
+			<!-- twitter -->
+			<script src="js/jquery.tweet.js"></script>
+			<!-- contact form -->
+			<script src="js/validate.js"></script>
+			<!-- custom functions -->
+			<script src="js/custom.js"></script>
+</body>
 </html>

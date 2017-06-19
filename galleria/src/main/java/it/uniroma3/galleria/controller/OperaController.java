@@ -65,7 +65,7 @@ public class OperaController  {
 			}
 			operaService.add(opera); 
 		}
-		return "/Opera/ritornaOpera";
+		return "/Opera/ritornaOperaAmministratore";
 	}
 
 	@GetMapping("/operaList")
@@ -115,7 +115,7 @@ public class OperaController  {
 		model.addAttribute("stanze", stanze);
 		model.addAttribute("autori", autori);
 		if (bindingResult.hasErrors()) {
-			return "/Opera/formOpera";
+			return "/Opera/modificaOpera";
 		}
 		else {
 			Autore autore= opera.getAutore();
