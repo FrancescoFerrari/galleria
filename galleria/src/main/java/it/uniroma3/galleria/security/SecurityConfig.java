@@ -25,7 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers("/index.html","/","/css/**","/contactform/**","/font/**","/img/**","/tweet/**", "/js/**", "/img/**","/vendor/**","/less/**","/mail/**","/signUp","/home","/","/signUp","/stanzaList","/autoreList","/mostraAutore","/mostraStanza","/mostraOpera","/modOpera","/modificaOpera","/cancellaOpera","/confermaCancellazione","/operaListTotale","/visualizzaPerAnnoOpera","/visualizzaPerTitoloOpera","/visualizzaPerTitoloAutore","/visualizzaPerAnnoAutore","/visualizzaPerAnnoNascitaAutore","/visualizzaPerNomeAutore","/visualizzaPerOpereEsposte","/visualizzaPerNomeStanza")                    
+		.antMatchers("/index.html","/","/css/**","/contactform/**","/font/**","/img/**","/tweet/**", "/js/**", "/img/**","/vendor/**","/less/**","/mail/**","/signUp","/home","/","/signUp","/stanzaList","/autoreList","/mostraAutore","/mostraStanza","/mostraOpera","/modOpera","/modificaOpera","/cancellaOpera","/confermaCancellazione","/operaListTotale","/visualizzaPerAnnoOpera","/visualizzaPerTitoloOpera","/visualizzaPerTitoloAutore","/visualizzaPerAnnoAutore","/visualizzaPerAnnoNascitaAutore","/visualizzaPerNomeAutore","/visualizzaPerOpereEsposte","/visualizzaPerNomeStanza","/visualizzaPerTitoloStanza","/visualizzaPerAnnoStanza")                    
 		.permitAll().antMatchers("/admin","/opera","/autore","/stanza").hasRole("ADMIN")
 		.anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll().and().logout()
 		.permitAll();
