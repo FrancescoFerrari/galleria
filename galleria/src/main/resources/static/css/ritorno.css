@@ -22,10 +22,10 @@
 	padding: 0;
 	border: 6px;
 	width: 60%;
-	max-width: 600px;
+	max-width: 500px;
 	float: left;
 	height: 50%;
-	max-height: 500px;
+	max-height: 400px;
 	margin: 10px;
 	overflow: hidden;
 }

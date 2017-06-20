@@ -98,6 +98,14 @@ public class AutoreController {
 	public String showPerAnno(@RequestParam("id")long id, Model model){
 		Autore autore = autoreService.findbyId(id);
 		List<Opera> opere= autore.getOpereAutore();
+		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+		if(autore.getAnnoMorte()!=null){
+			String dataMorte= df.format(autore.getAnnoMorte());
+			model.addAttribute("dataMorte",dataMorte);
+		}
+		String dataNascita = df.format(autore.getAnnoNascita());
+		model.addAttribute("dataNascita",dataNascita);
+
 		model.addAttribute("opere", opere);
 		model.addAttribute("autore", autore);
 		ComparatorePerAnno comparatore = new ComparatorePerAnno();
@@ -110,6 +118,13 @@ public class AutoreController {
 		Autore autore = autoreService.findbyId(id);
 		List<Opera> opere=autore.getOpereAutore();
 		Collections.sort(opere);
+		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+		if(autore.getAnnoMorte()!=null){
+			String dataMorte= df.format(autore.getAnnoMorte());
+			model.addAttribute("dataMorte",dataMorte);
+		}
+		String dataNascita = df.format(autore.getAnnoNascita());
+		model.addAttribute("dataNascita",dataNascita);
 		model.addAttribute("opere", opere);
 		model.addAttribute("autore", autore);
 		return "/Opera/opereDelAutore";
@@ -154,7 +169,7 @@ public class AutoreController {
 		Collections.sort(autori,comparatore);
 		return "/Autore/listaAutori";
 	}
-	
+
 	@GetMapping("/visualizzaPerNomeAutore")
 	public String showPerNomeAutore(Model model){
 		List<Autore> autori = (List<Autore>) autoreService.findAll();
@@ -195,13 +210,20 @@ public class AutoreController {
 		}
 		return "/Autore/ritornaAutoreAmministratore";
 	}
-	
+
 	@GetMapping("/mostraAutoreAmministratore")
 	public String showAutoreAmministratore(@RequestParam("id")long id, Model model){
 		Autore autore = autoreService.findbyId(id);
+		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+		if(autore.getAnnoMorte()!=null){
+			String dataMorte= df.format(autore.getAnnoMorte());
+			model.addAttribute("dataMorte",dataMorte);
+		}
+		String dataNascita = df.format(autore.getAnnoNascita());
+		model.addAttribute("dataNascita",dataNascita);
 		model.addAttribute("autore", autore);
 		return "/Autore/ritornaAutoreAmministratore";
 	}
-	
+
 }
 
