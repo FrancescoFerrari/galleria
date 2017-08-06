@@ -1,3 +1,6 @@
+Ringraziamo Paolo Merialdo per i 30 assegnatici.
+
+
 # galleria
 Repository of Siw project 
 
@@ -15,6 +18,7 @@ UC10: L'amministratore può decidere di cancellare un Autore presente nel sistem
 UC11: L'amministratore può aggiungere un proprio collaboratore per aiutarlo nella gestione del sito , aggiungendolo come Amministratore del sistema.L'amministratore può vedere la lista di tutti gli amministratori presenti nel sistema.
 UC12: L'amministratore può effettuare il logout e tornare ad essere un utente.
 UC13: L'utente può visualizzare l'insieme di tutte le opere presenti nel database.La lista delle opere presenti può essere ordinata per Titolo dell'opera e per anno di pubblicazione. 
+
 UC14: L'utente per ogni opera può visualizzare l'immagine e le informazioni d'interesse.
 UC15: L'utente può visualizzare tutti gli autori presenti nel sistema e per ognuno di essi può visualizzare oltre alle informazioni d'interesse sull'autore, anche tutte le opere da lui realizzate.La lista degli autori presenti può essere ordinata per Nome dell'autore ed Anno di Nascita.La lista delle opere realizzate dall'autore può essere ordinata per Titolo dell'opera e per anno di pubblicazione.
 UC16: L'utente può vedere le varie stanze della galleria e vedere le opere contenute al loro interno.La lista delle stanze può essere ordinata per Numero di Opere presenti nella stanza e per Nome della stanza.La lista delle opere presenti nella stanza può essere ordinata per Titolo dell'opera e per anno di pubblicazione. 
