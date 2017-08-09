@@ -1,6 +1,3 @@
-Ringraziamo Paolo Merialdo per i 30 assegnatici.
-
-
 # galleria
 Repository of Siw project 
 
